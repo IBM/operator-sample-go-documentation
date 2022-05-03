@@ -12,6 +12,7 @@ docs_dir: documentation
 # Navigation
 nav:
   - Introduction: ./README_introduction.md  
+  - Prerequisites: ./prerequisites.md
 
 ## DO NOT CHANGE BELOW THIS LINE
 
