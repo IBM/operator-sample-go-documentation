@@ -1,11 +1,11 @@
 # Project information
 site_name: operator-sample-go-documentation
-site_url: TBD
-site_author: Niklas Heidloff, Adam de Leeuw, Alain Airom, Thomas Suedbroecker
+site_url: https://github.com/thomassuedbroecker/operator-sample-go-documentation
+site_author: Thomas Suedbroecker
 
 # Repository
 repo_name: operator-sample-go-documentation
-repo_url: https://github.com/thomassuedbroecker/operator-sample-go-documentation
+repo_url: https://thomassuedbroecker.github.io/operator-sample-go-documentation/
 edit_uri: edit/main/documentation
 docs_dir: documentation
 
