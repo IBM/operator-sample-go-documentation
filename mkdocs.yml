@@ -47,7 +47,7 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/ibm/multi-tenancy
+      link: https://github.com/thomassuedbroecker/operator-sample-go-documentation
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/ibmdeveloper
     - icon: fontawesome/brands/linkedin
