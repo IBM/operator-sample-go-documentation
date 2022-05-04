@@ -42,6 +42,7 @@ kubectl get all
 
 ### 4. Required Kubernetes Components
 
+TBD
 
 
 

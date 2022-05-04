@@ -12,7 +12,9 @@ docs_dir: documentation
 # Navigation
 nav:
   - Introduction: ./README_introduction.md  
-  - Prerequisites: ./prerequisites.md
+  - Setup:
+      - Step 1 install prerequisites: ./prerequisites.md
+      - Step 2 install Application Operator : ./deploy-application-operator.md 
 
 ## DO NOT CHANGE BELOW THIS LINE
 
