@@ -76,5 +76,14 @@ kubectl apply -f olm/subscription-openshift.yaml
 #### Step 3: Verify the installation
 
 ```sh
-kubectl get 
+kubectl get pods -n openshift-operators
+```
+
+Example output:
+
+```sh
+NAME                                                              READY   STATUS      RESTARTS   AGE
+2760a1c5d8ba8085308470f871728cbe3cc55ff111da502268d993bc92nts25   0/1     Completed   0          127m
+operator-application-catalog-ctldl                                1/1     Running     0          127m
+operator-application-controller-manager-5dcdcd4559-zdt7s          2/2     Running     0          126m
 ```
