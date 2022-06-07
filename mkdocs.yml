@@ -1,10 +1,10 @@
 # Project information
-site_name: operator-sample-go-documentation
+site_name:  Kubernetes Operator Patterns and Best Practises Documentation
 site_url: https://github.com/thomassuedbroecker/operator-sample-go-documentation
 site_author:  Adam de Leeuw, Alain Airom, Diwakar Tiwari, Niklas Heidloff,  Sundeep Binaylal Golla, Thomas Suedbroecker
 
 # Repository
-repo_name: operator-sample-go-documentation
+repo_name: Kubernetes Operator Patterns and Best Practises
 repo_url: https://github.com/IBM/operator-sample-go
 edit_uri: edit/main/documentation
 docs_dir: documentation
