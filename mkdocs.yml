@@ -49,13 +49,13 @@ nav:
     - 6.7 Initialization and Validation Webhooks: ./template.md
     - 6.8 Converting Custom Resource Versions: ./template.md
     - 6.9 Defining Dependencies: ./template.md
-   - 7. Advanced Capabilities:
+  - 7. Advanced Capabilities:
     - 7.1 Overview: ./template.md
     - 7.2 Exporting Metrics from Kubernetes Apps for Prometheus: ./template.md
     - 7.3 Accessing Kubernetes from Go Applications: ./template.md
     - 7.4 How to build your own Database on Kubernetes: ./template.md
     - 7.5 Building Databases on Kubernetes with Quarkus: ./template.md
-   - 8. Golang:
+  - 8. Golang:
     - 8.1 Overview: ./template.md
     - 8.2 Importing Go Modules in Operators: ./template.md
     - 8.3 Accessing third Party Custom Resources in Go Operators: ./template.md
