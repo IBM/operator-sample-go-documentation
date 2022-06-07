@@ -11,47 +11,55 @@ docs_dir: documentation
 
 # Navigation
 nav:
-  - 1. Introduction: ./template.md
-      - 1.1 Niklas' overview video: ./template.md
-      - 1.2 Adam's demo video: ./template.md
-      - 1.3 Masterclass video: ./template.md
-  - 2. Dev env: ./template.md
-      - 2.1 Prereqs: ./template.md
-      - 2.2 Setup of IKS: ./template.md
-      - 2.3 Setup of ROKS: ./template.md
-      - 2.4 Run operators locally: ./template.md
-      - 4.5 Run operators without OLM: ./template.md
-      - 4.6 Run operators with OLM: ./template.md
-  - 3. Demos: ./template.md
-      - 3.1 OperatorHub: ./template.md
-      - 3.2 Database backup: ./template.md
-      - 3.3 Auto-scaler: ./template.md
-  - 4. Automated build and deployment: ./template.md
-      - 4.1 Kubernetes: ./template.md
-      - 4.2 OpenShift: ./template.md
-  - 5. Overview and Scenarios: ./template.md
-      - 5.1 Why you should build Kubernetes Operators: ./template.md
-      - 5.2 Day 2 Scenario - Automatically Archiving Data: ./template.md
-      - 5.3 Day 2 Scenario - Automatically Scaling Applications: ./template.md
-      - 5.4 The Kubernetes Operator Metamodel: ./template.md
-  - 6. Basic Capabilities : ./template.md
-      - 6.1 Creating and updating Resources: ./template.md
-      - 6.2 Deleting Resources: ./template.md
-      - 6.3 Storing State of Resources with Conditions: ./template.md
-      - 6.4 Finding out the Kubernetes Versions and Capabilities: ./template.md
-      - 6.5 Configuring Webhooks: ./template.md
-      - 6.6 Initialization and Validation Webhooks: ./template.md
-      - 6.7 Converting Custom Resource Versions: ./template.md
-      - 6.8 Defining Dependencies: ./template.md
-   - 7. Advanced Capabilities: ./template.md
-      - 7.1 Exporting Metrics from Kubernetes Apps for Prometheus: ./template.md
-      - 7.2 Accessing Kubernetes from Go Applications: ./template.md
-      - 7.3 How to build your own Database on Kubernetes: ./template.md
-      - 7.4 Building Databases on Kubernetes with Quarkus: ./template.md
-   - 8. Golang: ./template.md
-      - 8.1 Importing Go Modules in Operators: ./template.md
-      - 8.2 Accessing third Party Custom Resources in Go Operators: ./template.md
-      - 8.3 Using object-oriented Concepts in Golang based Operators: ./template.md
+  - 1. Introduction: 
+      - 1.1 Overview: ./template.md
+      - 1.2 Niklas' overview video: ./template.md
+      - 1.3 Adam's demo video: ./template.md
+      - 1.4 Masterclass video: ./template.md
+  - 2. Dev env:
+      - 2.1 Overview: ./template.md
+      - 2.2 Prereqs: ./template.md
+      - 2.3 Setup of IKS: ./template.md
+      - 2.4 Setup of ROKS: ./template.md
+      - 2.5 Run operators locally: ./template.md
+      - 2.6 Run operators without OLM: ./template.md
+      - 2.7 Run operators with OLM: ./template.md
+  - 3. Demos:
+      - 3.1 Overview: ./template.md
+      - 3.2 OperatorHub: ./template.md
+      - 3.3 Database backup: ./template.md
+      - 3.4 Auto-scaler: ./template.md
+  - 4. Automated build and deployment:
+      - 4.1 Overview: ./template.md
+      - 4.2 Kubernetes: ./template.md
+      - 4.4 OpenShift: ./template.md
+  - 5. Overview and Scenarios:
+      - 5.1 Overview: ./template.md
+      - 5.2 Why you should build Kubernetes Operators: ./template.md
+      - 5.3 Day 2 Scenario - Automatically Archiving Data: ./template.md
+      - 5.4 Day 2 Scenario - Automatically Scaling Applications: ./template.md
+      - 5.6 The Kubernetes Operator Metamodel: ./template.md
+  - 6. Basic Capabilities :
+      - 6.1 Overview: ./template.md
+      - 6.2 Creating and updating Resources: ./template.md
+      - 6.3 Deleting Resources: ./template.md
+      - 6.4 Storing State of Resources with Conditions: ./template.md
+      - 6.5 Finding out the Kubernetes Versions and Capabilities: ./template.md
+      - 6.6 Configuring Webhooks: ./template.md
+      - 6.7 Initialization and Validation Webhooks: ./template.md
+      - 6.8 Converting Custom Resource Versions: ./template.md
+      - 6.9 Defining Dependencies: ./template.md
+   - 7. Advanced Capabilities:
+      - 7.1 Overview: ./template.md
+      - 7.2 Exporting Metrics from Kubernetes Apps for Prometheus: ./template.md
+      - 7.3 Accessing Kubernetes from Go Applications: ./template.md
+      - 7.4 How to build your own Database on Kubernetes: ./template.md
+      - 7.5 Building Databases on Kubernetes with Quarkus: ./template.md
+   - 8. Golang:
+      - 8.1 Overview: ./template.md
+      - 8.2 Importing Go Modules in Operators: ./template.md
+      - 8.3 Accessing third Party Custom Resources in Go Operators: ./template.md
+      - 8.4 Using object-oriented Concepts in Golang based Operators: ./template.md
 
 ## DO NOT CHANGE BELOW THIS LINE
 
