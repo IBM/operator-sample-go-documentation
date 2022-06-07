@@ -13,9 +13,9 @@ docs_dir: documentation
 nav:
   - 1. Introduction:
     - 1.1 Overview: ./template.md
-    - 1.2 Niklas overview video: ./template.md
-    - 1.3 Adam demo video: ./template.md
-    - 1.4 Masterclass video: ./template.md
+    - 1.2 Architecture overview: ./template.md
+    - 1.3 Demo use cases overview: ./template.md
+    - 1.4 Masterclass overview: ./template.md
   - 2. Dev env:
     - 2.1 Overview: ./template.md
     - 2.2 Prereqs: ./template.md
