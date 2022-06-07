@@ -5,7 +5,7 @@ site_author: Thomas Suedbroecker
 
 # Repository
 repo_name: operator-sample-go-documentation
-repo_url: https://thomassuedbroecker.github.io/operator-sample-go-documentation/
+repo_url: https://thomassuedbroecker.github.io/operator-sample-go-documentation
 edit_uri: edit/main/documentation
 docs_dir: documentation
 
