@@ -1,11 +1,11 @@
 # Project information
 site_name: operator-sample-go-documentation
 site_url: https://github.com/thomassuedbroecker/operator-sample-go-documentation
-site_author: Thomas Suedbroecker
+site_author:  Adam de Leeuw, Alain Airom, Diwakar Tiwari, Niklas Heidloff,  Sundeep Binaylal Golla, Thomas Suedbroecker
 
 # Repository
 repo_name: operator-sample-go-documentation
-repo_url: https://thomassuedbroecker.github.io/operator-sample-go-documentation
+repo_url: https://github.com/IBM/operator-sample-go
 edit_uri: edit/main/documentation
 docs_dir: documentation
 
@@ -95,7 +95,7 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/thomassuedbroecker/operator-sample-go-documentation
+      link: https://github.com/IBM/operator-sample-go
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/ibmdeveloper
     - icon: fontawesome/brands/linkedin
