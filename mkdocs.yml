@@ -96,10 +96,6 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/IBM/operator-sample-go
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/ibmdeveloper
-    - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/company/ibm/
   generator: false
 
 extra_css:
