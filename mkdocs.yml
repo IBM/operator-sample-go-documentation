@@ -31,8 +31,8 @@ nav:
     - 3.4 Auto-scaler: ./template.md
   - 4. Automated build and deployment:
     - 4.1 Overview: ./template.md
-    - 4.2 Kubernetes: ./template.md
-    - 4.4 OpenShift: ./template.md
+    - 4.2 Kubernetes: ./automation-setup-kubernetes.md
+    - 4.3 OpenShift: ./template.md
   - 5. Overview and Scenarios:
     - 5.1 Overview: ./template.md
     - 5.2 Why you should build Kubernetes Operators: ./template.md
