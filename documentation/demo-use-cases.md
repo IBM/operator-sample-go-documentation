@@ -2,7 +2,7 @@
 
 ### Demo Video
 
-The [Masterclass](./masterclass.md) video contains a 20-minute section showing how a Kubernetes administrator would consume and utilise our sample operators.  You can also view a short [1-minute version of the demo](https://youtu.be/igl2X7hYRDE).
+The [Masterclass](./masterclass.md) video contains a 20-minute section showing how a Kubernetes administrator would consume and utilise our sample operators.  You can also view a short [1-minute version of the demo](https://youtu.be/iblGZ8mmbGo).
 
 The demo videos highlight the following use cases:
 

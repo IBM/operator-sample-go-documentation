@@ -15,9 +15,9 @@ The term ‘Operator’ or ‘Kubernetes Operator’ describes the mechanism to 
 
 Examples from the Operator Sample Go project:
 
-[Operator Dockerfile]()
-[Operator CSV]()
-[Operator initialization in main.go]()
+[Operator Dockerfile](https://github.com/IBM/operator-sample-go/blob/884e14053522645fcfedde38e4ae8a03378902f8/operator-application/Dockerfile)
+[Operator CSV](https://github.com/IBM/operator-sample-go/blob/884e14053522645fcfedde38e4ae8a03378902f8/operator-application/bundle/manifests/operator-application.clusterserviceversion.yaml)
+[Operator initialization in main.go](https://github.com/IBM/operator-sample-go/blob/884e14053522645fcfedde38e4ae8a03378902f8/operator-application/main.go)
 
 #### APIs
 
@@ -27,10 +27,10 @@ Custom resource definitions are identified by their group, version and resource 
 
 Examples from the Operator Sample Go project:
 
-[Sample resource]()
-[Schema as Go struct]()
-[Schema as yaml]()
-[Versions]()
+[Sample resource](https://github.com/IBM/operator-sample-go/blob/884e14053522645fcfedde38e4ae8a03378902f8/operator-application/config/samples/application.sample_v1beta1_application.yaml)
+[Schema as Go struct](https://github.com/IBM/operator-sample-go/blob/884e14053522645fcfedde38e4ae8a03378902f8/operator-application/api/v1beta1/application_types.go)
+[Schema as yaml](https://github.com/IBM/operator-sample-go/blob/884e14053522645fcfedde38e4ae8a03378902f8/operator-application/config/crd/bases/application.sample.ibm.com_applications.yaml)
+[Versions](https://github.com/IBM/operator-sample-go/tree/884e14053522645fcfedde38e4ae8a03378902f8/operator-application/api)
 
 #### Manager
 
@@ -38,7 +38,7 @@ The manager contains the business logic of the operator which knows how to deplo
 
 Examples from the Operator Sample Go project:
 
-[Manager creation in main.go]()
+[Manager creation in main.go](https://github.com/IBM/operator-sample-go/blob/884e14053522645fcfedde38e4ae8a03378902f8/operator-application/main.go#L57)
 
 
 #### Controller
@@ -48,10 +48,10 @@ The main responsibility of controllers is to synchronize the ‘to be’ states 
 
 Examples from the Operator Sample Go project:
 
-[Flow in Reconcile function]()
-[Synchronization of resources]()
-[Creations and updates of resources]()
-[Definition of resources to watch]()
+[Flow in Reconcile function](https://github.com/IBM/operator-sample-go/blob/884e14053522645fcfedde38e4ae8a03378902f8/operator-application/controllers/application/controller.go)
+[Synchronization of resources](https://github.com/IBM/operator-sample-go/blob/884e14053522645fcfedde38e4ae8a03378902f8/operator-application/controllers/application/service.go#L43-L49)
+[Creations and updates of resources](https://github.com/IBM/operator-sample-go/blob/884e14053522645fcfedde38e4ae8a03378902f8/operator-application/controllers/application/secret.go)
+[Definition of resources to watch](https://github.com/IBM/operator-sample-go/blob/884e14053522645fcfedde38e4ae8a03378902f8/operator-application/controllers/application/controller.go#L126)
 
 
 #### Webhooks
@@ -60,6 +60,6 @@ With webhooks values of resources can be changed and conversions between differe
 
 Examples from the Operator Sample Go project:
 
-[Initialization]()
-[Validation]()
-[Conversion]()
+[Initialization](https://github.com/IBM/operator-sample-go/blob/884e14053522645fcfedde38e4ae8a03378902f8/operator-application/api/v1beta1/application_webhook.go#L28)
+[Validation](https://github.com/IBM/operator-sample-go/blob/884e14053522645fcfedde38e4ae8a03378902f8/operator-application/api/v1beta1/application_webhook.go#L38-L83)
+[Conversion](https://github.com/IBM/operator-sample-go/blob/884e14053522645fcfedde38e4ae8a03378902f8/operator-application/api/v1alpha1/application_conversion.go)
