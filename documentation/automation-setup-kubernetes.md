@@ -1,4 +1,4 @@
-# 4.2 Kubernetes
+# Setting up IBM Kubernetes Services
 
 ### Discription
 

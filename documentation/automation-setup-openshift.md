@@ -1,4 +1,4 @@
-# 4.3 Kubernetes
+# Setting up a managed OpenShift Cluster
 
 ### Discription
 
