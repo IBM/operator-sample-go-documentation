@@ -1,7 +1,5 @@
 # Prerequisites
 
-**UNDER CONSTRUCTION**
-
 In order to run the example you need following:
 
 1. CLIs on your local machine
