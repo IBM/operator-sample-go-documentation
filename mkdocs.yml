@@ -25,10 +25,10 @@ nav:
     - 2.6 Run operators without OLM: ./automation-run-operators-without-olm.md
     - 2.7 Run operators with OLM: ./automation-run-operator-with-olm.md
   - 3. Demos:
-    - 3.1 Overview: ./template.md
-    - 3.2 OperatorHub: ./template.md
-    - 3.3 Database backup: ./template.md
-    - 3.4 Auto-scaler: ./template.md
+    - 3.1 Overview: ./demos-overview.md
+    - 3.2 OperatorHub: ./demos-operatorhub.md
+    - 3.3 Database backup: ./demos-database-backup.md
+    - 3.4 Auto-scaler: ./demos-auto-scaler.md
   - 4. Automated build and deployment:
     - 4.1 Overview: ./template.md
     - 4.2 Kubernetes: ./automation-setup-kubernetes.md
