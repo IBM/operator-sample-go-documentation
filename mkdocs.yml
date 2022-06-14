@@ -56,10 +56,10 @@ nav:
     - 7.4 How to build your own Database on Kubernetes: http://heidloff.net/article/how-to-build-your-own-database-on-kubernetes
     - 7.5 Building Databases on Kubernetes with Quarkus: http://heidloff.net/quarkus/building-databases-kubernetes-quarkus
   - 8. Golang:
-    - 8.1 Overview: ./template.md
-    - 8.2 Importing Go Modules in Operators: ./template.md
-    - 8.3 Accessing third Party Custom Resources in Go Operators: ./template.md
-    - 8.4 Using object-oriented Concepts in Golang based Operators: ./template.md
+    - 8.1 Overview: ./overview_golang.md
+    - 8.2 Importing Go Modules in Operators: http://heidloff.net/article/importing-go-modules-kubernetes-operators
+    - 8.3 Accessing third Party Custom Resources in Go Operators: http://heidloff.net/article/accessing-third-party-custom-resources-go-operators
+    - 8.4 Using object-oriented Concepts in Golang based Operators: http://heidloff.net/article/object-oriented-concepts-golang
 
 ## DO NOT CHANGE BELOW THIS LINE
 
