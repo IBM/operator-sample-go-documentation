@@ -38,7 +38,7 @@ nav:
     - 5.2 Why you should build Kubernetes Operators: ./template.md
     - 5.3 Day 2 Scenario - Automatically Archiving Data: ./template.md
     - 5.4 Day 2 Scenario - Automatically Scaling Applications: ./template.md
-    - 5.6 The Kubernetes Operator Metamodel: ./template.md
+    - 5.5 The Kubernetes Operator Metamodel: ./operators-metamodel.md
   - 6. Basic Capabilities:
     - 6.1 Overview: ./overview_basic_capabilities.md
     - 6.2 Creating and updating Resources: http://heidloff.net/article/updating-resources-kubernetes-operators
