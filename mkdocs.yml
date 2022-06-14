@@ -19,7 +19,7 @@ nav:
   - 2. Dev env:
     - 2.1 Overview: ./template.md
     - 2.2 Prereqs: ./prerequisites.md
-    - 2.3 Setup of IKS: ./template.md
+    - 2.3 Setup of IKS: ./automation-setup-kubernetes.md
     - 2.4 Setup of ROKS: ./template.md
     - 2.5 Run operators locally: ./template.md
     - 2.6 Run operators without OLM: ./template.md
