@@ -53,7 +53,7 @@ Before running the application operator, the database operator needs to be deplo
 
 ### Deploy the operator
 
-```
+```shell
 $ cd operator-application
 $ source ../versions.env
 $ make deploy IMG="$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR"
@@ -63,13 +63,13 @@ $ kubectl apply -f config/rbac/role_binding_patch.yaml
 
 ### Create an application resource
 
-```
+```shell
 $ kubectl apply -f config/samples/application.sample_v1beta1_application.yaml
 ```
 
 ### Verify the setup
 
-```
+```shell
 $ kubectl get all -n operator-application-system
 $ kubectl get applications.application.sample.ibm.com/application -n application-beta -oyaml
 $ kubectl exec -n application-beta $(kubectl get pods -n application-beta | awk '/application-deployment-microservice/ {print $1;exit}') --container application-microservice -- curl http://localhost:8081/hello
@@ -78,7 +78,7 @@ $ kubectl logs -n operator-application-system $(kubectl get pods -n operator-app
 
 ### Delete all resources
 
-```
+```shell
 $ kubectl delete -f config/samples/application.sample_v1beta1_application.yaml
 $ make undeploy IMG="$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR"
 ```
@@ -87,7 +87,7 @@ $ make undeploy IMG="$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR"
 
 Create versions_local.env and change 'REGISTRY', 'ORG' and image version.
 
-```
+```shell
 $ source ../versions_local.env
 $ podman build -t "$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR" .
 $ podman push "$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR"
@@ -97,7 +97,7 @@ $ podman push "$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR"
 
 v1alpha1:
 
-```
+```shell
 $ kubectl apply -f config/samples/application.sample_v1alpha1_application.yaml
 $ kubectl delete -f config/samples/application.sample_v1alpha1_application.yaml
 $ kubectl exec -n application-alpha $(kubectl get pods -n application-alpha | awk '/application-deployment-microservice/ {print $1;exit}') --container application-microservice -- curl http://localhost:8081/hello
@@ -107,7 +107,7 @@ $ kubectl get applications.v1beta1.application.sample.ibm.com/application -n app
 
 v1beta1:
 
-```
+```shell
 $ kubectl apply -f config/samples/application.sample_v1beta1_application.yaml
 $ kubectl delete -f config/samples/application.sample_v1beta1_application.yaml
 $ kubectl exec -n application-beta $(kubectl get pods -n application-beta | awk '/application-deployment-microservice/ {print $1;exit}') --container application-microservice -- curl http://localhost:8081/hello
@@ -121,14 +121,14 @@ Only needed for OpenShift:
 
 These steps allow the default Prometheus instance on OpenShift to monitor the resources deployed by the application operator.  In addition, because this instance is used to monitor other k8s resources, it requires authentication and can only be accessed via https.  Therefore additional secrets must be created providing a certificate and bearer token which are used by the [application scaler](../operator-application-scaler/README.md) job to access the Prometheus API.  Additional RBAC permissions are also required.
 
-```
+```shell
 $ oc label namespace application-beta openshift.io/cluster-monitoring="true"
 $ cd operator-application
 $ kubectl apply -f prometheus/role-openshift.yaml
 $ oc get secrets -n openshift-ingress
 ```
 Locate the default TLS secret with type 'kubernetes.io/tls', e.g. 'deleeuw-ocp-cluster-162e406f043e20da9b0ef0731954a894-0000'
-```
+```shell
 oc extract secret/<default TLS secret for your cluster> --to=/tmp -n openshift-ingress
 kubectl create secret generic prometheus-cert-secret --from-file=/tmp/tls.crt -n application-beta
 oc sa get-token -n openshift-monitoring prometheus-k8s > /tmp/token.txt
@@ -137,14 +137,14 @@ kubectl create secret generic prometheus-token-secret --from-file=/tmp/token.txt
 
 For both OpenShift and Kubernetes:
 
-```
+```shell
 $ cd operator-application
 $ kubectl apply -f prometheus/role-all.yaml
 ```
 
 For both OpenShift and Kubernetes, open the Prometheus dashboard:
 
-```
+```shell
 $ kubectl port-forward service/prometheus-operated -n monitoring 9090
 or for OpenShift:
 $ kubectl port-forward service/prometheus-operated -n openshift-monitoring 9090
