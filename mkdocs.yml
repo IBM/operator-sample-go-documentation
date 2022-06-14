@@ -22,7 +22,7 @@ nav:
     - 2.3 Setup of IKS: ./automation-setup-kubernetes.md
     - 2.4 Setup of ROKS: ./automation-setup-openshift.md
     - 2.5 Run operators locally: ./automation-run-operator-locally.md
-    - 2.6 Run operators without OLM: ./template.md
+    - 2.6 Run operators without OLM: ./automation-run-operators-without-olm.md
     - 2.7 Run operators with OLM: ./template.md
   - 3. Demos:
     - 3.1 Overview: ./template.md
