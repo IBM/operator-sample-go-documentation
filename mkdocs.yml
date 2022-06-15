@@ -19,8 +19,8 @@ nav:
   - 2. Dev env:
     - 2.1 Overview: ./template.md
     - 2.2 Prereqs: ./prerequisites.md
-    - 2.3 Setup of IKS: ./automation-setup-kubernetes.md
-    - 2.4 Setup of ROKS: ./automation-setup-openshift.md
+    - 2.3 Setup of IKS: ./dev-setup-kubernetes.md
+    - 2.4 Setup of ROKS: ./dev-setup-openshift.md
     - 2.5 Run operators locally: ./automation-run-operator-locally.md
     - 2.6 Run operators without OLM: ./automation-run-operators-without-olm.md
     - 2.7 Run operators with OLM: ./automation-run-operator-with-olm.md
