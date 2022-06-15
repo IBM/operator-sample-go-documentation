@@ -9,19 +9,19 @@ This project has been created by IBM Build Labs.  We provide a service to select
 Our [40-minute masterclass](https://www.youtube.com/watch?v=D6njEyXPieg) video provides a useful inroduction to operators and why to use them:
 
 ####Benefits 
-Automation of day 2 operations
-Reusability of software for multi-clouds
-Kubernetes-native and ecosystem
+* Automation of day 2 operations
+* Reusability of software for multi-clouds
+* Kubernetes-native and ecosystem
 
 ###Demos
-Day 1: OpenShift OperatorHub
-Day 2: Auto backup
-Day 2: Auto scalability
+* Day 1: OpenShift OperatorHub
+* Day 2: Auto backup
+* Day 2: Auto scalability
 
 ####Operators Architecture and Marketplaces
-Architecture
-Marketplaces
+* Architecture
+* Marketplaces
 
-####Win-Win
-What IBM Build Labs offers
-How to engage with us
+####Working With IBM Build Labs
+* What IBM Build Labs offers
+* How to engage with us
