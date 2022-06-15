@@ -21,9 +21,9 @@ nav:
     - 2.2 Prereqs: ./prerequisites.md
     - 2.3 Setup of IKS: ./dev-setup-kubernetes.md
     - 2.4 Setup of ROKS: ./dev-setup-openshift.md
-    - 2.5 Run operators locally: ./automation-run-operator-locally.md
-    - 2.6 Run operators without OLM: ./automation-run-operators-without-olm.md
-    - 2.7 Run operators with OLM: ./automation-run-operator-with-olm.md
+    - 2.5 Run operators locally: ./dev-run-operator-locally.md
+    - 2.6 Run operators without OLM: ./dev-run-operators-without-olm.md
+    - 2.7 Run operators with OLM: ./dev-run-operator-with-olm.md
   - 3. Demos:
     - 3.1 Overview: ./demos-overview.md
     - 3.2 OperatorHub: ./demos-operatorhub.md
