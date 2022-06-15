@@ -2,7 +2,9 @@
 
 ### Sample Go project
 
-The repo contains two operators:
+The [Operator Sample Go](https://github.com/IBM/operator-sample-go) project contains Kubernetes operator samples that demonstrate best practices of how to develop operators with [Golang](https://go.dev/), [Operator SDK](https://sdk.operatorframework.io/) including [Kubebuilder](https://github.com/kubernetes-sigs/kubebuilder) and the [Operator Lifecycle Manager Framework](https://operatorframework.io/).
+
+The project contains two operators and four applications:
 
 #### Application Operator
 
@@ -17,6 +19,8 @@ The application operator is responsible for the following tasks:
 * Database (a Custom Resource reconciled by the database operator, which creates the schema)
 #### Auto-pilot operational taks:
 * Auto-scaling of pods according to how many times the /hello endpoint has been invoked
+
+The application operator can be found in the [operator-application](https://github.com/IBM/operator-sample-go/tree/main/operator-application) folder.
 
 #### Database Operator
 
@@ -35,17 +39,19 @@ The database operator is responsible for the following tasks:
 * StatefulSet to manage stateful Pods and their binding to Persistent Volume Claims, Roles/Role Bindings, Service, Cronjob (to launch auto-backup logic)
 ##### Auto-pilot operational taks:
 * Immediate or scheduled backup of the database to one or more long term repositories (e.g. Cloud Object Storage)
-    
-The repo provides the following components, all of which build container images:
 
-1. operator-application - The application operator, initially created with Operator SDK using Go
-2. operator-database - The database operator, initially created with Operator SDK using Go
-3. simple-microservice - The front end web app, written in Java using Quarkus
-4. database-service - The simple database deployed by the database operator, written in Java using Quarkus
-5. operator-database-backup - A Go application to query the database and upload the data to cloud object storage.  This container is launched on a schedule by the database operator
-6. operator-application-scaler - A Go application used to make autoscaling decisions for the front-end.  It queries Prometheus metrics exposed by the simple-microservice, and if necessary, modifies the custom resource which defines the size of the front-end deployment.  This container is launched on a schedule by the application operator
+The database operator can be found in the [operator-database](https://github.com/IBM/operator-sample-go/tree/main/operator-database) folder.
 
-In addition, the repo contains these folders:
 
-7. scripts - Automation to verify workstation prerequisites, build all container images and deploy to a Kubernetes or OpenShift cluster.  Alternatively, the scripts can deploy pre-built 'golden' container images.
-8. prometheus - TODO This folder will be deleted?
+#### Assosiated Applications & Scripts
+
+The repo provides the following applications, used by the operators
+
+[simple-microservice](https://github.com/IBM/operator-sample-go/tree/main/simple-microservice) - The front end web application, written in Java using Quarkus
+[database-service](https://github.com/IBM/operator-sample-go/tree/main/database-service) - The simple database application deployed by the database operator, written in Java using Quarkus
+[operator-database-backup](https://github.com/IBM/operator-sample-go/tree/main/operator-database-backup) - A Go application to query the database and upload the data to cloud object storage.  This container is launched on a schedule by the database operator
+[operator-application-scaler](https://github.com/IBM/operator-sample-go/tree/main/operator-application-scaler) - A Go application used to make autoscaling decisions for the front-end.  It queries Prometheus metrics exposed by the simple-microservice, and if necessary, modifies the custom resource which defines the size of the front-end deployment.  This container is launched on a schedule by the application operator
+
+In addition, the repo includes:
+
+[scripts](https://github.com/IBM/operator-sample-go/tree/main/scripts) - Automation to verify workstation prerequisites, build all container images and deploy to a Kubernetes or OpenShift cluster.  Alternatively, the scripts can deploy pre-built 'golden' container images.
