@@ -6,7 +6,7 @@ This project has been created by IBM Build Labs.  We provide a service to select
 
 ### Watch Our Masterclass
 
-Our [40-minute masterclass](https://www.youtube.com/watch?v=D6njEyXPieg&t=899s) video provides a useful inroduction to operators and why to use them:
+Our [40-minute masterclass](https://www.youtube.com/watch?v=D6njEyXPieg) video provides a useful inroduction to operators and why to use them:
 
 ####Benefits 
 Automation of day 2 operations
