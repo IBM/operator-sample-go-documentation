@@ -31,10 +31,10 @@ Create Object Storage on [IBM Cloud](https://cloud.ibm.com/)
 3. Click on the Object Storage 
 4. Once clicked a tab window will open of Cloud Ojbect Storage, IBM Cloud will be selected by default
 5. Choose your pricing plan
-6. In configure your resource section: </br>
-- Enter Service Name </br>
-- Select a Resource Group </br>
-- Enter Tags as requied </br>
+6. In configure your resource section:
+    * Enter Service Name
+    * Select a Resource Group
+    * Enter Tags as requied
 7. Click on Create
 
 Create service credentials
@@ -81,12 +81,12 @@ oc apply -f config/samples/application.sample_v1beta1_application.yaml
 2. Go to the Networking section in left navigation 
 3. Select Routes
 4. Click the "Create Route" button
-5. Add Following details </br>
-- Name the route "hello" </br>
-- Add the path "/hello" </br>
-- Select Service "application-service-microservice" </br>
-- Select Target Port 8081 -> 8081 (TCP) </br>
-- Click on "Create" </br>
+5. Add Following details
+    * Name the route "hello"
+    * Add the path "/hello"
+    * Select Service "application-service-microservice"
+    * Select Target Port 8081 -> 8081 (TCP)
+    * Click on "Create"
 
 Now browse to the Location Link provided in the Routes List to invoke the /hello endpoint.  It sometimes takes a couple of requests before the simple-microservice application responds.  The browser should render the following response:
 
