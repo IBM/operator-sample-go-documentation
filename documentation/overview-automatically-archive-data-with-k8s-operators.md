@@ -1,6 +1,6 @@
 # Automatically Archiving Data with Kubernetes Operators
 
-The database operator defines a [‘DatabaseBackup‘](https://github.com/IBM/operator-sample-go/blob/8ce338d65d2cc9f8db437e3aa635f94a45156922/operator-database/config/samples/database.sample_v1alpha1_databasebackup.yaml) custom resource which allows the human operator to define when to do backups and where to store the data.
+The database operator defines a [‘DatabaseBackup‘](https://github.com/IBM/operator-sample-go/blob/8ce338d65d2cc9f8db437e3aa635f94a45156922/operator-database/config/samples/database.sample_v1alpha1_databasebackup.yaml) custom resource which allows the human operator to specify when to do backups and where to store the data.
 
 ```sh
 apiVersion: database.sample.third.party/v1alpha1
@@ -70,16 +70,25 @@ If the DatabaseBackup resource defined a scheduledTrigger section, the operator 
 
 If the DatabaseBackup resource defined a manualTrigger section, the operator creates a Job which immediately launches the operator-database-backup application.
 
-The HMAC credentials should also be moved to Kubernetes secrets (or security tools).  When the operator creates the CronJob, it does in fact take the HMAC from a [secret](https://github.com/IBM/operator-sample-go/blob/main/operator-database-backup/kubernetes/secret.yaml).
+The following steps can be used to test the auto-backup:
 
 For testing purposes the following commands can be invoked to trigger the CronJob to execute a Job immediately. In status.conditions of the DatabaseBackup resource, feedback is provided whether the backup has been successful.
 
+* Create a cloud object storage instance on IBM Cloud, refer to the [demo setup guide](./demos-overview.md)
+* Create a Secret for the cloud object storage cedentials, refer to the [demo setup guide](./demos-overview.md)
+* Create a DatabaseBackup resource
 ```sh
 kubectl apply -f ../operator-database/config/samples/database.sample_v1alpha1_databasebackup.yaml
-kubectl apply -f kubernetes/role.yaml
-kubectl apply -f kubernetes/cronjob.yaml
+```
+* For testing purposes the following commands can be invoked to trigger the CronJob to execute a Job immediately
+```sh
 kubectl create job --from=cronjob/database-backup manuallytriggered -n database
+```
+* In status.conditions of the DatabaseBackup resource, check the feedback to determine whether the backup was successful.
+```sh
 kubectl get databasebackups databasebackup-manual -n database -oyaml
+
+Example output:
 ...
 status:
   conditions:
