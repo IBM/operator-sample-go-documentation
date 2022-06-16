@@ -27,7 +27,6 @@ $ make uninstall
 ```
 
 
-
 # Application Operator - Setup and local Usage
 
 🔴 IMPORTANT: First install the [prerequistes](./prerequisites.md)! If you don't do it, it won't work :)
@@ -72,6 +71,3 @@ $ kubectl exec -n application-beta $(kubectl get pods -n application-beta | awk 
 $ kubectl delete -f config/samples/application.sample_v1beta1_application.yaml
 $ make uninstall
 ```
-
-
-

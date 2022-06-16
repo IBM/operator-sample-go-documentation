@@ -75,7 +75,7 @@ oc apply -f config/samples/application.sample_v1beta1_application.yaml
 2. Go to the Networking section in left navigation 
 3. Select Routes
 4. Click the "Create Route" button
-5. Add Following details
+5. Add following details
     * Name the route "hello"
     * Add the path "/hello"
     * Select Service "application-service-microservice"

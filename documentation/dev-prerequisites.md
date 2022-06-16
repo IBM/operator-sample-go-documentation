@@ -1,16 +1,16 @@
 # Prerequisites
 
-In order to run the example you need following:
+In order to run the samples you need following:
 
 1. CLIs on your local machine
-2. This source code repository
+2. The [operator-application-scaler](https://github.com/IBM/operator-sample-go/tree/main/operator-application-scaler) source code repository
 3. A Kubernetes cluster
-4. Installed components on the Kubenetes cluster 
-5. Images registry.
+4. Prerequisites components installed on the Kubenetes cluster 
+5. Image registry
 
 ### 1. Required CLIs
 
-1. [operator-sdk](https://sdk.operatorframework.io/docs/installation/) (comes with Golang)
+1. [operator-sdk](https://sdk.operatorframework.io/docs/installation/) (includes Golang)
 2. [git](https://github.com/git-guides/install-git)
 3. [kubectl](https://kubernetes.io/de/docs/setup/)
 4. [podman](https://podman.io/)
@@ -20,7 +20,7 @@ In order to run the example you need following:
 
 🔴 IMPORTANT: The repo has been tested with operator-sdk v1.18.0. 
 
-> _Note:_ that there is an issue with later versions. For more details please visite that [blog post](https://suedbroecker.net/2022/04/28/make-generate-error-127/).
+> _Note:_ that there is an issue with later versions. For more details please visit this [blog post](https://suedbroecker.net/2022/04/28/make-generate-error-127/).
 
 ### 2. Source code repository
 
@@ -31,17 +31,20 @@ cd operator-sample-go
 
 ### 3. Kubernetes cluster
 
-You need a Red Hat OpenShift cluster.
+For OpenShift:
 
 ```sh
 oc login --token=sha256~xxxxx --server=https://c106-e.us-south.containers.cloud.ibm.com:32335
 kubectl get all
 ```
 
-### 4. Required Kubernetes Components
+For Kubernetes:
 
 TBD
 
+### 4. Required Kubernetes Components
+
+TBD
 
 
 # Prerequisites
