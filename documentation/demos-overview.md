@@ -1,12 +1,6 @@
 # Demos Overview
 
-The following pages summarise the key points for each use case featured in the [demo video]((https://www.youtube.com/watch?v=D6njEyXPieg).  In addition, a more detailed technical explanation of each use case is provided.
-
-*[Introduction to OpenShift OperatorHub, packaging with OLM & Installing operators from OperatorHub](./demos-operatorhub.md)
-
-*[Database Backup](./demos-database-backup.md)
-
-*[Application Auto-scaling](./demos-auto-scaler.md)
+This section summarises the key use cases presented in the [20-minute demo video](https://www.youtube.com/watch?v=D6njEyXPieg&t=12m45s). If you wish to perform this demo yourself, setup instructions are provided.
 
 ### Demo Setup
 
@@ -96,7 +90,7 @@ Hello World and hello Adam
 
 The Route will continue to work even if the simple-microservice application is deleted and later re-created (by the Application operator)
 
-### Uninstall components to prepare for demo
+### Uninstall components prior to demo
 
 Having followed the above steps, you should have an OpenShift cluster with all the required components to test the sample operators.  However, in the demo video, certain steps were performed manually via the OpenShift console e.g. installing the operators via OperatorHub.  If you wish to reproduce the demo yourself, it is necessary to delete some resources in preparation:
 
