@@ -1,4 +1,4 @@
-# 1.1 Overview
+# Overview
 
 ### Sample Go project
 

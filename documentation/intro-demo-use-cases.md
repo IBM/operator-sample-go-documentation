@@ -1,4 +1,4 @@
-# 1.3 Demo use cases overview
+# Demo use cases overview
 
 ### Demo Video
 

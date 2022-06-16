@@ -1,1 +1,1 @@
-# 1.2 Operator Sample Go Architecture overview
+# Operator Sample Go Architecture overview

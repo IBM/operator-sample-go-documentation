@@ -1,4 +1,4 @@
-# 3.4 Auto-scaler
+# Auto-scaler
 
 ### Creating a Front-end Application
 
