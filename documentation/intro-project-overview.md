@@ -1,8 +1,12 @@
 # Overview
 
+![Getting Started](./images/operators-benefits.jpeg)
+
 ### Sample Go project
 
 The [Operator Sample Go](https://github.com/IBM/operator-sample-go) project contains Kubernetes operator samples that demonstrate best practices of how to develop operators with [Golang](https://go.dev/), [Operator SDK](https://sdk.operatorframework.io/) including [Kubebuilder](https://github.com/kubernetes-sigs/kubebuilder) and the [Operator Lifecycle Manager Framework](https://operatorframework.io/).
+
+The operators in this project were build with Operator SDK and tested with IBM Cloud Kubernetes Service and IBM Cloud OpenShift Service.  These samples go far beyond a typical operator getting started tutorial, proving a useful reference implementation.
 
 The project contains two operators and four applications:
 
