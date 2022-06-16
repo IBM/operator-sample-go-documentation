@@ -1,5 +1,6 @@
 # Automatically Archiving Data with Kubernetes Operators
-To allow operators to backup data automatically, you need a custom resource definition first which defines when to do backups and where to store the data. We’ve created a custom resource [‘DatabaseBackup‘](https://github.com/IBM/operator-sample-go/blob/8ce338d65d2cc9f8db437e3aa635f94a45156922/operator-database/config/samples/database.sample_v1alpha1_databasebackup.yaml) with this information. We use buckets from IBM Cloud Object Storage.
+
+The database operator defines a [‘DatabaseBackup‘](https://github.com/IBM/operator-sample-go/blob/8ce338d65d2cc9f8db437e3aa635f94a45156922/operator-database/config/samples/database.sample_v1alpha1_databasebackup.yaml) custom resource which allows the human operator to define when to do backups and where to store the data.
 
 ```sh
 apiVersion: database.sample.third.party/v1alpha1
@@ -25,7 +26,13 @@ spec:
     repo: ibmcos-repo
 ```
 
-In order to run the backups on a scheduled basis, we use Kubernetes CronJobs. This makes also sense since the backup tasks can take quite some time for large datasets. The [CronJob](https://github.com/IBM/operator-sample-go/blob/8ce338d65d2cc9f8db437e3aa635f94a45156922/operator-database-backup/kubernetes/cronjob.yaml) could be applied manually, but a cleaner design is to let operators do this. Secrets like the HMAC secret should also be moved to Kubernetes secrets (or security tools).
+The DatabaseBackup resource defines a list of backup storage repositories.  The spec section allows for a list of backup storage reposities to be defined, but the sample yaml above defines just one backup repo with the connection details for Cloud Object Storage on IBM Cloud.  There are also sections to request either an immediate one-off backup, or an repeating scheduled backup.
+
+In order to run the backups on a scheduled basis, we use Kubernetes CronJobs rather than execute the task directly from the operator's reconcile loop. This makes sense because the backup tasks can take quite some time for large datasets.
+
+The [CronJob](https://github.com/IBM/operator-sample-go/blob/8ce338d65d2cc9f8db437e3aa635f94a45156922/operator-database-backup/kubernetes/cronjob.yaml) could be applied manually, but a cleaner design is to let operators do this.
+
+If the human operator creates the DatabaseBackup resource, the database operator will define a CrobJob, similar to that shown below.  The properties of the CronJob are set dynamically, based on the values provided in the DatabaseBackup resource.
 
 ```sh
 apiVersion: batch/v1
@@ -41,7 +48,7 @@ spec:
         spec:
           containers:
           - name: database-backup
-            image: docker.io/nheidloff/operator-database-backup:v1.0.7
+            image: docker.io/nheidloff/operator-database-backup:v1.0.117
             imagePullPolicy: IfNotPresent
             env:
             - name: BACKUP_RESOURCE_NAME
@@ -59,7 +66,13 @@ spec:
           restartPolicy: OnFailure
 ```
 
-For testing purposes the following commands can be invoked to trigger a job manually to run immediately. In status.conditions of the database backup resource feedback is provided whether the backup has been successful
+If the DatabaseBackup resource defined a scheduledTrigger section, the operator creates a CronJob which will launched the operator-database-backup application on the defined schedule.
+
+If the DatabaseBackup resource defined a manualTrigger section, the operator creates a Job which immediately launches the operator-database-backup application.
+
+The HMAC credentials should also be moved to Kubernetes secrets (or security tools).  When the operator creates the CronJob, it does in fact take the HMAC from a [secret](https://github.com/IBM/operator-sample-go/blob/main/operator-database-backup/kubernetes/secret.yaml).
+
+For testing purposes the following commands can be invoked to trigger the CronJob to execute a Job immediately. In status.conditions of the DatabaseBackup resource, feedback is provided whether the backup has been successful.
 
 ```sh
 kubectl apply -f ../operator-database/config/samples/database.sample_v1alpha1_databasebackup.yaml
@@ -94,8 +107,7 @@ These screenshots show the deployed CronJob, Job and Pod
 ![Auto Archive 3](http://heidloff.net/wp-content/uploads/2022/04/auto-archive3.png) -->
 
 
-
-The [code](https://github.com/IBM/operator-sample-go/blob/0b46e5ee18b892293ce2ff2eb565ea9500de298b/operator-database-backup/backup/backup.go) of the backup job is pretty straight forward. I’ve implemented a Go image with the following functionality.
+The [operator-database-backup](https://github.com/IBM/operator-sample-go/tree/main/operator-database-backup) application, launched by the CronJob is implemented in Go with the following functionality:
 
 * Get the database backup resource from Kubernetes
 * Validate input environment variables
