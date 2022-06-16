@@ -1,6 +1,9 @@
 # The Kubernetes Operator Metamodel
 
-There are several sites, tutorials and articles that describe operators. When I started to work on operators, it would have helped me to understand the metamodel, key concepts and high level architecture first. Unfortunately I didn’t find such an overview. The best overview I found is the [Kubebuilder Architecture Concept Diagram](https://book.kubebuilder.io/architecture.html). I’ve extended and changed this diagram to add key components that were missing and to help me explaining our clients how operators work. I’ve also simplified the diagram to focus on key capabilities only.
+This sections describes the key objects and concepts you need to understand before building operators. The diagram shows the key concepts and high level architecture, based on the Kubebuilder Architecture Concept Diagram
+
+Most of the concepts in the diagram are generic for all types of operators, no matter how they have been implemented. Some parts are specific to operators built with Golang, Operator SDK including [Kubebuilder Architecture Concept Diagram](https://book.kubebuilder.io/architecture.html) and the [Operator Lifecycle Manager Framework](https://operatorframework.io/).
+
 
 Most of the concepts in the diagram are generic for all types of operators, no matter how they have been implemented. Some parts are specific to operators built with [Golang](https://go.dev/), [Operator SDK](https://sdk.operatorframework.io/) including [Kubebuilder](https://github.com/kubernetes-sigs/kubebuilder) and the [Operator Lifecycle Manager Framework](https://operatorframework.io/).
 

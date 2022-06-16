@@ -1,6 +1,6 @@
 # Why you should build Kubernetes Operators
 
-There are multiple technologies to install and operate software in Kubernetes: kubectl, oc, Helm, Kustomize, CI/CD, GitOps, operators and more. As always the answer to the question when to use what is: It depends. Let me share my top three reasons why to use operators.
+There are multiple technologies to install and operate software in Kubernetes: kubectl, oc, Helm, Kustomize, CI/CD, GitOps, operators and more. As always the answer to the question when to use what is: It depends. Followings are the top three reasons why to use operators.
 
 
 # Top three Reasons to use Operators
@@ -18,7 +18,7 @@ There are multiple technologies to install and operate software in Kubernetes: k
 
 # 1) Automation of Day 2 Operations
 
-The main purpose of operators is to automate operations. While this sounds obvious, often there is a perception that operators are only another way to deploy software. The key value of operators is to make operations of software as seamless as possible. I often think of operators as the next best way after Software as as Service (SaaS) to easily manage software running in our own clusters.
+The main purpose of operators is to automate operations. While this sounds obvious, often there is a perception that operators are only another way to deploy software. The key value of operators is to make operations of software as seamless as possible. People often think of operators as the next best way after Software as as Service (SaaS) to easily manage software running in our own clusters.
 
 Kubernetes operators are capable to automate the expensive and error likely human operations. Features like autopilot and self-healing are great scenarios. For example databases can be archived automatically, software can automatically be scaled up and down and missing resources can be recreated when they have been deleted by mistake or in catastrophic events. It’s even possible to predict failures before they happen and to take appropriate actions.
 

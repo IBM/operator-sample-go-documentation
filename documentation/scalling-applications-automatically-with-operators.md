@@ -81,7 +81,7 @@ spec:
 
 ```
 
-The [implementation](https://github.com/IBM/operator-sample-go/blob/f130dc768df6d9178f6395690f508f0840e0b5ef/operator-application-scaler/scaler/scaler.go) of the actual auto-scaler is trivial. I’ve used the [Prometheus Go client library](https://github.com/prometheus/client_golang/). Note that this library is still considered experimental. Alternatively you can use the [Prometheus HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/).
+The [implementation](https://github.com/IBM/operator-sample-go/blob/f130dc768df6d9178f6395690f508f0840e0b5ef/operator-application-scaler/scaler/scaler.go) of the actual auto-scaler is trivial. We have used the [Prometheus Go client library](https://github.com/prometheus/client_golang/). Note that this library is still considered experimental. Alternatively we can also use the [Prometheus HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/).
 
 ```sh
 prometheusAddress := "http://prometheus-operated.monitoring:9090"
