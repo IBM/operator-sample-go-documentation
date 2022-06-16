@@ -2,8 +2,7 @@
 
 There are multiple technologies to install and operate software in Kubernetes: kubectl, oc, Helm, Kustomize, CI/CD, GitOps, operators and more. As always the answer to the question when to use what is: It depends. Followings are the top three reasons why to use operators.
 
-
-# Top three Reasons to use Operators
+### Top three Reasons to use Operators
 
 1. Automation of Day 2 Operations
     * Autopilot and Self-Healing
@@ -16,7 +15,7 @@ There are multiple technologies to install and operate software in Kubernetes: k
     * Industry Standard
 
 
-# 1) Automation of Day 2 Operations
+### 1) Automation of Day 2 Operations
 
 The main purpose of operators is to automate operations. While this sounds obvious, often there is a perception that operators are only another way to deploy software. The key value of operators is to make operations of software as seamless as possible. People often think of operators as the next best way after Software as as Service (SaaS) to easily manage software running in our own clusters.
 
@@ -24,7 +23,7 @@ Kubernetes operators are capable to automate the expensive and error likely huma
 
 These automations work for all types of workloads (stateful and stateless) and all types of Kubernetes resources (compute, storage, network). All business specific automation functionality can be bundled in one operator component rather than using a diverse set of tools.
 
-# 2) Reusability of Software
+### 2) Reusability of Software
 
 Another benefit of operators is the reusability of software. With operators software and libraries can be bundled so that it can be used in different contexts. This approach is different from CI/CD pipelines where software is deployed more frequently specifically for one application.
 
@@ -32,7 +31,7 @@ Software providers can expose their operators in various catalogs, hubs and mark
 
 Additionally operators can be utilized to share software within companies and to share software with specific clients. In this scenario operators can be published in internal catalogs or they can be directly deployed to clusters.
 
-# 3) Leverage of the Kubernetes Community
+### 3) Leverage of the Kubernetes Community
 
 Kubernetes is the de-facto standard how to run software in the cloud. There is a huge ecosystem supporting Kubernetes, providing samples, tools and commercial offerings and more. Operators leverage this community, since they are a natural and Kubernetes-native way to extend Kubernetes. Operators are not only used to manage third-party resources, but they are also used internally. Because operators base on the Kubernetes model, existing development tools, CLIs, monitoring tools, etc. can be used.
 
