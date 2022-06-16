@@ -22,7 +22,7 @@ cd scripts
 sh scripts/demo-openshift-operators.sh app demo reset
 ```
 
-### Create a Cloud Object Storage (COS) Bucket and Access Secrets
+#### Create a Cloud Object Storage (COS) Bucket and Access Secrets
 
 Create Object Storage on [IBM Cloud](https://cloud.ibm.com/)
 
@@ -32,9 +32,9 @@ Create Object Storage on [IBM Cloud](https://cloud.ibm.com/)
 4. Once clicked a tab window will open of Cloud Ojbect Storage, **IBM Cloud** will be selected by default
 5. Choose your pricing plan
 6. in configure your resource section:
-a. Enter Service Name
-b. Select a Resource Group
-c. enter Tags as requied
+* Enter Service Name
+* Select a Resource Group
+* Enter Tags as requied
 7. Click on Create
 
 Create service credentials
@@ -46,7 +46,7 @@ Create service credentials
 5. Click on **"Adavanced options"**.
 6. Enable to the toggle to **"Include HMAC Credentials"**.
 7. Click on **"Add"** Button.
-8. Click on the **Arrow Down** before credential name to show the **ACCESS KEY ID** and  **SECRET ACCESS KEY** written in **JSON**.
+8. Click on the **Arrow Down** before credential name to show the **ACCESS KEY ID** and  **SECRET ACCESS KEY** written in the JSON.
 
 Store the service credentials to a Kubernetes Secret. This is required for the operator-database-backup application which backs up data to Cloud Object Storage
 
@@ -64,7 +64,7 @@ cd operator-database-backup
 kubectl apply -f kubernetes/secret.yaml
 ```
 
-### Create a Route to the /hello enpoint for the micro-service application
+#### Create a Route to the /hello enpoint for the micro-service application
 
 Before you can create and test the route, you must have deployed the Application and DatabaseCluster resources.
 
@@ -82,11 +82,11 @@ oc apply -f config/samples/application.sample_v1beta1_application.yaml
 3. Select Routes
 4. Click on Create Route button
 5. Add Following details
-a. Name of the route "hello"
-b. add the path "/hello"
-c. Select Service "application-service-microservice"
-d. Select Target Port 8081 -> 8081 (TCP)
-e. Click on Create
+* Name of the route "hello"
+* Add the path "/hello"
+* Select Service "application-service-microservice"
+* Select Target Port 8081 -> 8081 (TCP)
+* Click on Create
 
 Now browse to the Location Link provided in the Routes List to invoke the /hello endpoint.  It sometimes takes a couple of requests before the simple-microservice application responds.  The browser should render the following response:
 
@@ -98,8 +98,8 @@ The Route will continue to work even if the simple-microservice application is d
 
 ### Uninstall components to prepare for demo
 
-Having followed the above steps, you should have an OpenShift cluster with all the required components to perform a demo.  However, in the demo video, certain steps were performed manually via the OpenShift console e.g. installing the operators via OperatorHub.  If you wish to reproduce the demo yourself, it is necessary to delete some resources in preparation:
+Having followed the above steps, you should have an OpenShift cluster with all the required components to test the sample operators.  However, in the demo video, certain steps were performed manually via the OpenShift console e.g. installing the operators via OperatorHub.  If you wish to reproduce the demo yourself, it is necessary to delete some resources in preparation:
 
 * Uninstall both operators (but leave Catalog sources), using OpenShift Console menu ```Installed Operators```
-* Delete all CR instances (if present): Application, Database, Databasecluster, Databasebackup, using using OpenShift Console menu ```Administration->CustomResourceDefinitions```
+* Delete all CR instances (if present): Application, Database, Databasecluster, Databasebackup, using using OpenShift Console menu ```Administration->CustomResourceDefinitions->[CRD Name]->Instances```
 * Delete all CRDs: Application, Database, Databasecluster, Databasebackup, using using OpenShift Console menu ```Administration->CustomResourceDefinitions```

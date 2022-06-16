@@ -7,18 +7,18 @@ The Application operator will automaticly scale the front-end application, but f
 The demo shows how to create an instance of the [Application resource](https://github.com/IBM/operator-sample-go/blob/main/operator-application/config/samples/application.sample_v1beta1_application.yaml) to trigger the operator to deploy a front end application.  Note the kind is a custom resource, defined by the application operator, and the fields are specific to our application.  We don’t need to create lots of Kuberenetes resources ourselves, the Application resource provides an abstraction. The operator will reconcile this resource and create multiple Kubernetes resources (i.e. Deployment, Service etc) in the application-beta namespace. The Deployment creates a specified number of instances of the [simple-microservice](https://github.com/IBM/operator-sample-go/tree/main/simple-microservice) application.
 
 
-<img src="images/demo17.png" />
-<img src="images/demo18.png" />
+<img src="./images/demo17.png" />
+<img src="./images/demo18.png" />
 
 The simple-microservice application connects to the database-service application, and renders a Hello World response for each name in the database, when accessed by its /hello endpoint.
 
-<img src="images/demo19.png" />
+<img src="./images/demo19.png" />
 
 ### Prometheus Metrics
 
 The simple-microservice application publishes metrics which are collected by Prometheus monitoring, which is installed by default on OpenShift. In particular, the metric indicates how many times the /hello endpoint has been invoked.  It is on the basis of this data that auto-scaling decisions are made.  Prometheus metrics can be manually queried from the OpenShift dashboard.
 
-<img src="images/demo32.png" /> 
+<img src="./images/demo32.png" /> 
 
 ### Auto-scaling Decision Logic
 
@@ -30,8 +30,8 @@ The operator-application-scaler application is launched on a schedule by the Cro
 
 The operator-application-scaler application does this by directly editing the Application custom resource that we created previously. There could be many Application custom resources defined in the Kubernetes cluster, each with different properties (a trivial example would be that each resource configured a unique title for the web app, which the operator duely configured via property based customisations, enabling a common web app to render the differing titles).  Fortunately, when the operator created the CronJob which launches the operator-application-scaler application, it set an environment variable which specifies which Application custom resource the operator-application-scaler application should scale up or down.  With this knowledge, the operator-application-scaler application uses Kubernetes API to locate the relevant Application custom resource, and change the desired state regarding the number of instances.
 
-<img src="images/demo26.png" /> 
+<img src="./images/demo26.png" /> 
 
 Remember, Application custom resources are managed by the application operator.  Anytime an instance of this resource is created or changed, the application operator will be notified.  The operator will reconcile the new desired state by updating the Kubernetes Deployment which scales up the number of simple-microservice application pods.
 
-<img src="images/demo28.png" /> 
+<img src="./images/demo28.png" /> 

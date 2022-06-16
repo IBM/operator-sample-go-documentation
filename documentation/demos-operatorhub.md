@@ -6,7 +6,7 @@ Kubernetes includes an Operator Lifecycle Manager component which is used extens
 
 Each tile represents an operator which are visible in the UI of the thousands of OpenShift clusters, used by enterprises worldwide.  Currently, there are around 400 operators from RedHat, IBM and other ISVs and you can filter the operators in various ways.  
 
-<img src="images/demo1.png" />
+<img src="./images/demo1.png" />
 
 The OperatorHub collates its contents from various sources (known as Catalogs).
 
@@ -24,7 +24,7 @@ It’s also possible to create your own private catalog sources to provide your 
 
 It’s important to understand how the packaging of operators works.  To have your own operator included in any of the catalog sources referenced above, it needs to be packaged according to the requirements of the Operator Lifecycle Manager, which in simplified terms looks like this:
 
-<img src="images/demo6.png" />
+<img src="./images/demo6.png" />
 
 The bundle is a collection of files which includes a resource definition called a ClusterServiceVersion which describes the operator and where to find it in a registry, the manifests to create the CRDs the operator manages, and any dependencies such as other operators.  From the bundle, you must create a Dockerfile to build a minimal container containing the files, which is pushed to a registry.  Finally, you must create another container called the index image.  The existing (or additional/new) catalog sources derive their content from index images, as they provide an API which publishes the details of your bundle.
 
@@ -34,25 +34,25 @@ Once you have these packaging artifacts, what you do next depends on which catal
 
 With Catalog sources installed to the cluster and the bundle, catalog and operator images uploaded to a container registry, the operators would be ready to install via the OperatorHub UI or OpenShift CLI.
 
-<img src="images/demo7.png" />
+<img src="./images/demo7.png" />
 
 ### Custom Resource Definitions
 
 Each operator defines Custom Resource Definitions, AKI APIs as they are extensions to the default Kubernetes APIs for creating typical Kubernetes resources such as Deployments, Secrets etc.
 
-<img src="images/demo10.png" />
+<img src="./images/demo10.png" />
 
 The database operator defines three CRDs:
 
-The Cluster API/CRD allows for creating a ‘cluster’ of pods which simulate a typical database. Each pod is managed by a stateful set, has some storage, and provides some APIs. The database pods communicate with each other to establish one leader, to which data can be written and multiple followers/replicas which replicate the data for high availability. The database itself is just a sample, when called by an API, it writes a single json file to its associated persistent storage.
+* DatabaseCluster API/CRD allows for creating a ‘cluster’ of pods which simulate a typical database. Each pod is managed by a stateful set, has some storage, and provides some APIs. The database pods communicate with each other to establish one leader, to which data can be written and multiple followers/replicas which replicate the data for high availability. The database itself is just a sample, when called by an API, it writes a single json file to its associated persistent storage.
 
-The Database API/CRD instructs the database cluster to create a ‘database schema’, populated by the specified SQL file. A real database may have other ways to create the schema.
+* Database API/CRD instructs the database cluster to create a ‘database schema’, populated by the specified SQL file. A real database may have other ways to create the schema.
 
-The Backup API/CRD is used to automate the day 2 operation of triggering a manual or scheduled backup of the data, to cloud object storage. The operator encapsulates all the relevant know how to perform backups in a consistent and repeatable way.
+* Backup API/CRD is used to automate the day 2 operation of triggering a manual or scheduled backup of the data, to cloud object storage. The operator encapsulates all the relevant know how to perform backups in a consistent and repeatable way.
 
 The application operator defines one CRD:
 
-The Application API/CRD creates a frontend web application by creating Kubernetes resources like secrets and deployments, and in addition, it uses the custom resources to create a ‘database schema’ (NB. It doesn't actually do this but this was the intention for this CR. For now, the database is currently hardcoded with its data).
+* Application API/CRD creates a frontend web application by creating Kubernetes resources like secrets and deployments, and in addition, it uses the custom resources to create a ‘database schema’ (NB. It doesn't actually do this but this was the intention for this CR. For now, the database is currently hardcoded with its data).
 
 ### How Does it Work?
 
@@ -64,8 +64,8 @@ A [Subscription](https://github.com/IBM/operator-sample-go/blob/3d2772725954c140
 
 The operator controller is deployed with a Deployment in the openshift-operators namespace.  The operator does not deploy any resources until an instance of its CRD is created.  This will trigger operator's reconcile loop which uses Kubernetes API to create and manage the required Kubernetes resources.
 
-<img src="images/demo29.png" />
+<img src="./images/demo29.png" />
 
 The operator's CRDs can be found in Administration->Custom Resource Definitions.
 
-<img src="images/demo30.png" />
+<img src="./images/demo30.png" />
