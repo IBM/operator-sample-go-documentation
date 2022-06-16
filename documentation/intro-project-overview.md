@@ -72,7 +72,9 @@ When you're ready to experiment with changes to the sample operators:
 * Learn how to [deploy an operator to a kubernetes cluster without requiring the Operator Lifecycle Manager (OLM) packaging](./dev-run-operators-without-olm.md)
 * Learn how to manually [package and deploy an operator using OLM](./dev-run-operator-with-olm.md). This is the approach our script automation uses.
 
-When you're ready to create your own operators:
+When you're ready to create your own operators, read our companion blogs:
 
-* Review the [Operator SDK tutorial](https://sdk.operatorframework.io/docs/building-operators/golang/tutorial/)
-* Read our companion blogs describing [basic operator capabilities](./basic-capabilities-overview.md), [advanced operator capabilities](./advanced-capabilities-overview.md) and [Go hints & tips related to operator development](./golang-overview.md)
+* [Links to operator development resources](http://heidloff.net/articles/resources-to-build-kubernetes-operators/)
+* [Basic operator capabilities](./basic-capabilities-overview.md)
+* [Advanced operator capabilities](./advanced-capabilities-overview.md) 
+* [Go hints & tips related to operator development](./golang-overview.md)
