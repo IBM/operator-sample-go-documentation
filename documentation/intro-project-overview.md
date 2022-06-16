@@ -55,3 +55,24 @@ The repo provides the following applications, used by the operators
 In addition, the repo includes:
 
 * [scripts](https://github.com/IBM/operator-sample-go/tree/main/scripts) - Automation to verify workstation prerequisites, build all container images and deploy to a Kubernetes or OpenShift cluster.  Alternatively, the scripts can deploy pre-built 'golden' container images.
+
+#### Next steps to use this project
+
+Get hands-on with the sample operators:
+
+* Setup your workstation with the [prerequisites](./dev-prerequisites.md) for development
+* Understand the basic [architecture](./intro-architecture-overview.md) of the operators
+* Watch the [demo video](./intro-demo-use-cases.md)
+* Understand in detail the [backup](./overview-automatically-archive-data-with-k8s-operators.md) and [scaling](./overview-scalling-applications-automatically-with-operators.md) capabilities in more detail
+* Use the [script automation](./automation-overview.md) to build all images and deploy to IBM Cloud Kubernetes Service or IBM Cloud OpenShift Service
+
+When you're ready to experiment with changes to the sample operators:
+
+* Learn how to [run & debug an operataor locally](./dev-run-operator-locally.md)
+* Learn how to [deploy an operator to a kubernetes cluster without the overhead of creating Operator Lifecycle Manager (OLM) packaging](./dev-run-operators-without-olm.md)
+* Learn how to manually [package and deploy an operator using OLM](./dev-run-operator-with-olm.md). This is the approach our script automation uses.
+
+When you're ready to create your own operators:
+
+* Review the [Operator SDK tutorial](https://sdk.operatorframework.io/docs/building-operators/golang/tutorial/)
+* Read our companion blogs describing [basic operator capabilities](./basic-capabilities-overview.md), [advanced operator capabilities](./advanced-capabilities-overview.md) and [Go hints related to operator development](./golang-overview.md)
