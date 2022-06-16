@@ -1,6 +1,6 @@
 # Database Operator - Operator deployed with OLM
 
-🔴 IMPORTANT: First install the [prerequistes](Prerequisites.md)! If you don't do it, it won't work :)
+🔴 IMPORTANT: First install the [prerequistes](./prerequisites.md)! If you don't do it, it won't work :)
 
 🔴 IMPORTANT: Webhooks and Prometheus doesn't work in this configuration yet.
 
@@ -126,7 +126,7 @@ $ operator-sdk run bundle "$REGISTRY/$ORG/$IMAGE_DATABASE_OPERATOR_BUNDLE" -n op
 
 # Application Operator - Operator deployed with OLM
 
-🔴 IMPORTANT: First install the [prerequistes](Prerequisites.md)! If you don't do it, it won't work :)
+🔴 IMPORTANT: First install the [prerequistes](./prerequisites.md)! If you don't do it, it won't work :)
 
 ### Deploy database operator
 

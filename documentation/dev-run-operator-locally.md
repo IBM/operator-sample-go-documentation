@@ -1,6 +1,6 @@
 # Database Operator - Setup and local Usage
 
-🔴 IMPORTANT: First install the [prerequistes](./Prerequisites.md)! If you don't do it, it won't work :)
+🔴 IMPORTANT: First install the [prerequistes](./prerequisites.md)! If you don't do it, it won't work :)
 
 ### Run operator locally
 
@@ -30,7 +30,7 @@ $ make uninstall
 
 # Application Operator - Setup and local Usage
 
-🔴 IMPORTANT: First install the [prerequistes](https://github.com/IBM/operator-sample-go/blob/main/documentation/Prerequisites.md)! If you don't do it, it won't work :)
+🔴 IMPORTANT: First install the [prerequistes](./prerequisites.md)! If you don't do it, it won't work :)
 
 ### Create database resource
 
