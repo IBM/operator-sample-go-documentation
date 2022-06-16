@@ -10,7 +10,7 @@ One pod is the leader supporting reads and writes, the others are followers prov
 
 The database cluster automatically populates itself with some harcoded sample data (a simple JSON file containing a list of names). It also provides a /person endpoint to return the data:
 
-<img src="./images/demo11.png" />
+![image](./images/demo11.png) 
 
 ### Defining a Database Backup
 
@@ -29,6 +29,3 @@ The DatabaseBackup defines the connection string for the Cloud Object Storage, a
 If the DatabaseBackup resource defined a scheduledTrigger section, the operator creates a CronJob which will launched the operator-database-backup application on the defined schedule.
 
 If the DatabaseBackup resource defined a manualTrigger section, the operator creates a Job which immediately launches the operator-database-backup application.
-
-
-
