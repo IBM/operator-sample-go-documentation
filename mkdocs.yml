@@ -35,10 +35,10 @@ nav:
     - 4.3 OpenShift: ./automation-setup-openshift.md
   - 5. Overview and Scenarios:
     - 5.1 Overview: ./overview-and-scenarios.md
-    - 5.2 Why you should build Kubernetes Operators: ./why-build-k8s-operators
-    - 5.3 Day 2 Scenario - Automatically Archiving Data: ./automatically-archive-data-with-k8s-operators.md
-    - 5.4 Day 2 Scenario - Automatically Scaling Applications: ./scalling-applications-automatically-with-operators.md
-    - 5.5 The Kubernetes Operator Metamodel: ./the-k8s-operator-metamodel.md
+    - 5.2 Why you should build Kubernetes Operators: ./overview-why-build-k8s-operators.md
+    - 5.3 Day 2 Scenario - Automatically Archiving Data: ./overview-automatically-archive-data-with-k8s-operators.md
+    - 5.4 Day 2 Scenario - Automatically Scaling Applications: ./overview-scalling-applications-automatically-with-operators.md
+    - 5.5 The Kubernetes Operator Metamodel: ./overview-the-k8s-operator-metamodel.md
   - 6. Basic Capabilities:
     - 6.1 Overview: ./overview_basic_capabilities.md
     - 6.2 Creating and updating Resources: http://heidloff.net/article/updating-resources-kubernetes-operators

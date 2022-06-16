@@ -1,4 +1,4 @@
-# 3.2 OperatorHub
+# OperatorHub
 
 ### Introduction to OpenShift OperatorHub
 

@@ -1,4 +1,4 @@
-# 1.4 Masterclass overview
+# Masterclass overview
 
 ### IBM Build Labs
 

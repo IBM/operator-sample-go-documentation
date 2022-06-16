@@ -1,4 +1,4 @@
-# 3.1 Demos Overview
+# Demos Overview
 
 The following pages summarise the key points for each use case featured in the [demo video]((https://www.youtube.com/watch?v=D6njEyXPieg).  In addition, a more detailed technical explanation of each use case is provided.
 
@@ -27,11 +27,11 @@ sh scripts/demo-openshift-operators.sh app demo reset
 Create Object Storage on [IBM Cloud](https://cloud.ibm.com/)
 
 1. Login to your IBM Cloud Console
-2. Search for Object Storage in Search Bar **_OR_** Click on Catalog from Upper Navigation Menu, Choose Services in Type
+2. Search for Object Storage in Search Bar or Click on Catalog from Upper Navigation Menu, Choose Services in Type
 3. Click on the Object Storage 
-4. Once clicked a tab window will open of Cloud Ojbect Storage, **IBM Cloud** will be selected by default
+4. Once clicked a tab window will open of Cloud Ojbect Storage, IBM Cloud will be selected by default
 5. Choose your pricing plan
-6. in configure your resource section:
+6. In configure your resource section:
 * Enter Service Name
 * Select a Resource Group
 * Enter Tags as requied
@@ -39,22 +39,22 @@ Create Object Storage on [IBM Cloud](https://cloud.ibm.com/)
 
 Create service credentials
 
-1. From the Left Navigation Menu Click on **Service Credentials**.
-2. in the righ Middle Section click on **"New Credential"** Blue Button.
+1. From the Left Navigation Menu Click on "Service Credentials".
+2. Click the "New Credential" blue button.
 3. Enter the name of credentials.
-4. Keep the Role to **"writer"**.
-5. Click on **"Adavanced options"**.
-6. Enable to the toggle to **"Include HMAC Credentials"**.
-7. Click on **"Add"** Button.
-8. Click on the **Arrow Down** before credential name to show the **ACCESS KEY ID** and  **SECRET ACCESS KEY** written in the JSON.
+4. Keep the Role to "writer".
+5. Click on "Adavanced options".
+6. Enable to the toggle to "Include HMAC Credentials".
+7. Click the "Add" button.
+8. Expand the credential name to show the "ACCESS KEY ID" and  "SECRET ACCESS KEY" written in the JSON.
 
 Store the service credentials to a Kubernetes Secret. This is required for the operator-database-backup application which backs up data to Cloud Object Storage
 
 1. Edit file [secret.yaml](https://github.com/IBM/operator-sample-go/blob/main/operator-database-backup/kubernetes/secret.yaml) and change the following lines respectively:
 
 ```
-HmacAccessKeyId: "ADD access_key_id from Credential JSON"
-HmacSecretAccessKey: "ADD ecret_access_key from Credential JSON"
+HmacAccessKeyId: "Add access_key_id from Credential JSON"
+HmacSecretAccessKey: "Add ecret_access_key from Credential JSON"
 ```
 
 2. Create the secret on the cluster
@@ -80,13 +80,13 @@ oc apply -f config/samples/application.sample_v1beta1_application.yaml
 1. Login to Openshift console
 2. Go to the Networking section in left navigation 
 3. Select Routes
-4. Click on Create Route button
+4. Click the "Create Route" button
 5. Add Following details
-* Name of the route "hello"
+* Name the route "hello"
 * Add the path "/hello"
 * Select Service "application-service-microservice"
 * Select Target Port 8081 -> 8081 (TCP)
-* Click on Create
+* Click on "Create"
 
 Now browse to the Location Link provided in the Routes List to invoke the /hello endpoint.  It sometimes takes a couple of requests before the simple-microservice application responds.  The browser should render the following response:
 

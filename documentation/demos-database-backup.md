@@ -1,4 +1,4 @@
-# 3.3 Database backup
+# Database backup
 
 ### Creating a Database Cluster
 
