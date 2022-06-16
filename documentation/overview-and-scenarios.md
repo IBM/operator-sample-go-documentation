@@ -1,12 +1,15 @@
 # Overview and Scenarios
 
-Operators are a powerful technology to automate operations of software in Kubernetes clusters. This article describes scenarios when operators should be used and which value they provide.
+We're all familiar publishers using app stores to reach mass audiences for mobile apps.  How is this possible for enterprise applications?  The answer is via marketplaces.  Operators support the packaging of kubernetes based enterprise applications so they can be shared and promoted in various marketplaces and catalogs. This enables enterprise applications to made available digitally in a self-service fashion.
 
-Kubernetes operators allow the automation of day 2 operational tasks. A good example is the automatic archiving of data. This article describes how data from a simple database can be archived automatically in S3 buckets using CronJobs, Jobs and custom resources.
+Enterprise applications are usually complex.  They are often not easy to deploy or operate and may require potential error human tasks during installation, maintenance or monitoring.
+
+The real power or Kubernetes operators are not just day 1 tasks like the initial deployments, but also the automation of day 2 operations such as automatic backup, scaling, fault predictions, self healing, operations, reporting etc. Operators should be an integral part of the development of enterprise applications so that can be used to automate this complex tasks.
 
 ![Getting Started](./images/operators-benefits.jpeg)
 <!-- ![Getting Started](http://heidloff.net/wp-content/uploads/2022/04/operators-benefits.jpg) -->
 
-The complete source code from this article is available in the [ibm/operator-sample-go](https://github.com/IBM/operator-sample-go) repo. The repo comes with a simple implementation of a database system which can be deployed on Kubernetes. Data is persisted in JSON files as outlined in the previous article Building Databases on Kubernetes with Quarkus.
+This section describes how the operators from the [Sample Operator Go](https://github.com/IBM/operator-sample-go) project automates day 2 tasks:
 
-The real power or Kubernetes operators are not day 1 tasks like the initial deployments, but the automation of day 2 operations. This article describes a sample operator that scales up an application automatically based on the number of API requests.
+* The application sample operator scales up an application automatically based on the number of API requests
+* The database sample operator backs up data from a simple database to cloud object storage buckets
