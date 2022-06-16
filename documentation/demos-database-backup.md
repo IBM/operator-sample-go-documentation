@@ -22,6 +22,12 @@ In addition, there are two further sections to define either an immediate or sch
 
 The database operator will reconcile the DatabaseBackup resource by creating a Kubernetes CronJob which launches the [operator-database-backup](https://github.com/IBM/operator-sample-go/tree/main/operator-database-backup) application on a schedule.  The DatabaseBackup resource defines the container registry & image name for the operator-database-backup application which should be defined in the CronJob, when created by the operator.
 
+### Commands to demo the database backup use case
+
+```
+...
+```
+
 ### How Does it Work?
 
 The DatabaseBackup defines the connection string for the Cloud Object Storage, and references a Secret that must be present on the cluster.  The operator-database-backup application is written in Go.  When launched by the CronJob, it uses the Kubernetes Service to make a HTTP request to the /persons API (exposed by the database-service application) to retrieve the data.  It then uses HTTP to connect to cloud object storage on IBM Cloud, creates a bucket and uploads the data.
