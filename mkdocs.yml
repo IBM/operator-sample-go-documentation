@@ -20,7 +20,7 @@ nav:
     - 2.1 Overview: ./template.md
     - 2.2 Prereqs: ./prerequisites.md
     - 2.3 Setup of IKS: ./dev-setup-kubernetes.md
-    - 2.4 Setup of ROKS: ./dev-setup-openshift.md
+    - 2.4 Setup of OpenShift: ./dev-setup-openshift.md
     - 2.5 Run operators locally: ./dev-run-operator-locally.md
     - 2.6 Run operators without OLM: ./dev-run-operators-without-olm.md
     - 2.7 Run operators with OLM: ./dev-run-operator-with-olm.md
@@ -30,9 +30,9 @@ nav:
     - 3.3 Database backup: ./demos-database-backup.md
     - 3.4 Auto-scaler: ./demos-auto-scaler.md
   - 4. Automated build and deployment:
-    - 4.1 Overview: ./template.md
+    - 4.1 Overview: ./automation-overview.md
     - 4.2 Kubernetes: ./automation-setup-kubernetes.md
-    - 4.3 OpenShift: ./template.md
+    - 4.3 OpenShift: ./automation-setup-openshift.md
   - 5. Overview and Scenarios:
     - 5.1 Overview: ./overview-and-scenarios.md
     - 5.2 Why you should build Kubernetes Operators: ./why-build-k8s-operators
