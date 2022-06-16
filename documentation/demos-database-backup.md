@@ -10,7 +10,7 @@ One pod is the leader supporting reads and writes, the others are followers prov
 
 The database cluster automatically populates itself with some harcoded sample data (a simple JSON file containing a list of names). It also provides a /person endpoint to return the data:
 
-<img src="images/demo11.png" />
+<img src="./images/demo11.png" />
 
 ### Defining a Database Backup
 
