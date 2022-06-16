@@ -11,24 +11,24 @@ docs_dir: documentation
 
 # Navigation
 nav:
-  - 1. Introduction:
-    - 1.1 Overview: ./template.md
-    - 1.2 Architecture overview: ./template.md
-    - 1.3 Demo use cases overview: ./template.md
-    - 1.4 Masterclass overview: ./template.md
+  - 1. Introduction to Operator Sample Go Project:
+    - 1.1 Overview: ./project-overview.md
+    - 1.2 Architecture overview: ./architecture-overview.md
+    - 1.3 Demo use cases overview: ./demo-use-cases.md
+    - 1.4 Masterclass overview: ./masterclass.md
   - 2. Dev env:
     - 2.1 Overview: ./template.md
     - 2.2 Prereqs: ./prerequisites.md
-    - 2.3 Setup of IKS: ./automation-setup-kubernetes.md
-    - 2.4 Setup of ROKS: ./automation-setup-openshift.md
-    - 2.5 Run operators locally: ./automation-run-operator-locally.md
-    - 2.6 Run operators without OLM: ./template.md
-    - 2.7 Run operators with OLM: ./template.md
+    - 2.3 Setup of IKS: ./dev-setup-kubernetes.md
+    - 2.4 Setup of ROKS: ./dev-setup-openshift.md
+    - 2.5 Run operators locally: ./dev-run-operator-locally.md
+    - 2.6 Run operators without OLM: ./dev-run-operators-without-olm.md
+    - 2.7 Run operators with OLM: ./dev-run-operator-with-olm.md
   - 3. Demos:
-    - 3.1 Overview: ./template.md
-    - 3.2 OperatorHub: ./template.md
-    - 3.3 Database backup: ./template.md
-    - 3.4 Auto-scaler: ./template.md
+    - 3.1 Overview: ./demos-overview.md
+    - 3.2 OperatorHub: ./demos-operatorhub.md
+    - 3.3 Database backup: ./demos-database-backup.md
+    - 3.4 Auto-scaler: ./demos-auto-scaler.md
   - 4. Automated build and deployment:
     - 4.1 Overview: ./template.md
     - 4.2 Kubernetes: ./automation-setup-kubernetes.md
