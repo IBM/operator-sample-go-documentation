@@ -9,8 +9,4 @@ Operators should be an integral part of the development of enterprise applicatio
 This section describes details of: 
 
 * The reasons to build Kubernetes operators.
-* The day 2 capabilities of the sample operators
-
-
-
-
+* Technical implementation details of the day 2 capabilities provided by the sample operators
