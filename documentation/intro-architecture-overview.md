@@ -1,6 +1,6 @@
 # Operator Sample Go architecture overview
 
-![Metamodel](./images/OperatorMetaModel.png)
+![Metamodel](./images/samplesOverview.png)
 
 The image summarises the main components of the Operator Sample Go project, when deployed to Kubernetes.
 

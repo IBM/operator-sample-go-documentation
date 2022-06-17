@@ -8,5 +8,8 @@ Operators should be an integral part of the development of enterprise applicatio
 
 This section describes details of: 
 
-* The reasons to build Kubernetes operators.
+* [The reasons to build Kubernetes operators](./overview-why-build-k8s-operators.md)
 * Technical implementation details of the day 2 capabilities provided by the sample operators
+    * [Automated backup](./demos-database-backup.md)
+    * [Automated scaling](./demos-auto-scaler.md)
+* An introduction to the [components of operator development](./overview-the-k8s-operator-metamodel.md)
