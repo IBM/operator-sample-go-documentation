@@ -2,53 +2,6 @@
 
 In order to run the samples you need following:
 
-1. CLIs on your local machine
-2. The [operator-application-scaler](https://github.com/IBM/operator-sample-go/tree/main/operator-application-scaler) source code repository
-3. A Kubernetes cluster
-4. Prerequisites components installed on the Kubenetes cluster 
-5. Image registry
-
-### 1. Required CLIs
-
-1. [operator-sdk](https://sdk.operatorframework.io/docs/installation/) (includes Golang)
-2. [git](https://github.com/git-guides/install-git)
-3. [kubectl](https://kubernetes.io/de/docs/setup/)
-4. [podman](https://podman.io/)
-5. Only if IBM Cloud is used: [ibmcloud](https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli)
-
-### 1.1. Operator SDK
-
-🔴 IMPORTANT: The repo has been tested with operator-sdk v1.18.0. 
-
-> _Note:_ that there is an issue with later versions. For more details please visit this [blog post](https://suedbroecker.net/2022/04/28/make-generate-error-127/).
-
-### 2. Source code repository
-
-```sh
-git clone https://github.com/ibm/operator-sample-go.git
-cd operator-sample-go
-```
-
-### 3. Kubernetes cluster
-
-For OpenShift:
-
-```sh
-oc login --token=sha256~xxxxx --server=https://c106-e.us-south.containers.cloud.ibm.com:32335
-kubectl get all
-```
-
-For Kubernetes:
-
-TBD
-
-### 4. Required Kubernetes Components
-
-TBD
-
-
-# Prerequisites
-
 ### 1. Required CLIs
 
 1. [operator-sdk](https://sdk.operatorframework.io/docs/installation/) (comes with Golang)
@@ -92,7 +45,7 @@ $ go version
 
 ### 2. Editing the code with Visual Studio Code
 
-Verify your path, and if needed go to the folder where the code is cloned;
+Verify your path, and if needed go to the folder where the code is cloned.
 
 ```
 $ cd operator-sample-go
@@ -123,18 +76,18 @@ $ kubectl get all
 
 ### 4. Required Kubernetes Components
 
-OpenShift comes with certain components preinstalled which is why there are two scripts to install the additional components:
-
 * cert-manager
 * OLM (Operator Lifecycle Manager)
 * Prometheus
+
+OpenShift comes with certain components preinstalled which is why there are two scripts to install the additional components (one for OpenShift, another for Kubernetes).
 
 **Kubernetes**
 
 ```
 $ sh scripts/install-required-kubernetes-components.sh
 ```
-Note: Incase of "Operators deployed without OLM" , the above script will install OLM even though it is not required. It is required to run the above script for all the use cases inorder to install other required components such as cert-manager and Prometheus because it is commonly written script for all the use cases. 
+Note: Although it is possible to install the sample operators without OLM, the above script installs it anyway.  It is a required component to install cert-manager and Prometheus.
 
 **OpenShift**
 
@@ -160,7 +113,7 @@ cat versions_local.env-template > versions_local.env
 code versions_local.env
 ```
 
-* Change the values to your needs
+* Change the values to your needs, e.g.
 
 ```sh
 export REGISTRY='quay.io'

@@ -1,8 +1,29 @@
+# Setup of required executable bin files
+
+The repo does not contain certain bin files which are required to create the OLM catalog image.
+
+The bin files (controller-gen, kustomize, opm, setup-envtest) are normally added to the operator project when initially created by the operator SDK tool.
+
+A script is provided to create a temp operator SDK project, copy the bin files to sample application and database operator projects, then delete the temp project when it has finished.
+
+```shell
+sh scripts/check-binfiles-for-operator-sdk-projects.sh
+```
+
+  > Note: You need to interact with the script. These are the temp values you can use for the script execution: `'Display name   : myproblemfix'`, `Description    : myproblemfix`, `Provider's name: myproblemfix`, `Any relevant URL:`, `Comma-separated keywords   : myproblemfix` `Comma-separated maintainers: myproblemfix@myproblemfix.net`. 
+
+Example output:
+```shell
+***  Bin folder status: operator-database
+controller-gen  kustomize       opm             setup-envtest
+***  Bin folder status: operator-database
+controller-gen  kustomize       opm             setup-envtest
+```
+
+
 # Database Operator - Operator deployed with OLM
 
 🔴 IMPORTANT: First install the [prerequistes](./prerequisites.md)! If you don't do it, it won't work :)
-
-🔴 IMPORTANT: Webhooks and Prometheus doesn't work in this configuration yet.
 
 ### Deploy catalog source and subscription
 
@@ -73,8 +94,6 @@ $ podman push "$REGISTRY/$ORG/$IMAGE_DATABASE_OPERATOR"
 
 ### Build and push new bundle image
 
-Create versions_local.env and change 'REGISTRY', 'ORG' and image version.
-
 ```shell
 $ source ../versions_local.env
 $ make bundle IMG="$REGISTRY/$ORG/$IMAGE_DATABASE_OPERATOR"
@@ -84,33 +103,13 @@ $ podman push "$REGISTRY/$ORG/$IMAGE_DATABASE_OPERATOR_BUNDLE"
 
 ### Build and push new catalog image
 
-### a) Setup of the needed executable bin files
-
-   Setup of the needed bin files (controller-gen, kustomize, opm, setup-envtest) for the operator-sdk projects. The script will create a temp operator sdk project, to create a the bin file and delete that temp project when it was finished.
-
-   ```shell
-   sh scripts/check-binfiles-for-operator-sdk-projects.sh
-   ```
-
-  > Note: You need to interact with the script, because when you create the first time a bundle. These are the temp values you can use for the script execution. These are the example values: `'Display name   : myproblemfix'`, `Description    : myproblemfix`, `Provider's name: myproblemfix`, `Any relevant URL:`, `Comma-separated keywords   : myproblemfix` `Comma-separated maintainers: myproblemfix@myproblemfix.net`. 
-
-Example output:
-```shell
-***  Bin folder status: operator-database
-controller-gen  kustomize       opm             setup-envtest
-***  Bin folder status: operator-database
-controller-gen  kustomize       opm             setup-envtest
-```
-
-### b) Build and push
-
 ```shell
 $ source ../versions_local.env
 $ ./bin/opm index add --build-tool podman --mode semver --tag "$REGISTRY/$ORG/$IMAGE_DATABASE_OPERATOR_CATALOG" --bundles "$REGISTRY/$ORG/$IMAGE_DATABASE_OPERATOR_BUNDLE"
 $ podman push "$REGISTRY/$ORG/$IMAGE_DATABASE_OPERATOR_CATALOG"
 ```
 
-> Note: Define "$REGISTRY/$ORG/$IMAGE_DATABASE_OPERATOR_CATALOG" in olm/catalogsource.yaml and/or olm/catalogsource-openshift.yaml and invoke the commands above to apply catalog source and subscription.
+> Note: Define "$REGISTRY/$ORG/$IMAGE_DATABASE_OPERATOR_CATALOG" in olm/catalogsource.yaml and/or olm/catalogsource-openshift.yaml and invoke the commands above to update the catalog source and subscription.
 
 ### Alternative
 
@@ -123,14 +122,13 @@ $ operator-sdk run bundle "$REGISTRY/$ORG/$IMAGE_DATABASE_OPERATOR_BUNDLE" -n op
 ```
 
 
-
 # Application Operator - Operator deployed with OLM
 
 🔴 IMPORTANT: First install the [prerequistes](./prerequisites.md)! If you don't do it, it won't work :)
 
 ### Deploy database operator
 
-Before running the application operator, the database operator needs to be deployed since it is defined as dependency. Follow the [instructions](DbSetupWithoutOLM.md) in the documentation.
+Before running the application operator, the database operator needs to be deployed since it is defined as dependency. Refer to the previous section.
 
 ### Deploy catalog source and subscription
 
@@ -200,15 +198,13 @@ $ podman push "$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR_BUNDLE"
 
 ### Build and push new catalog image
 
-Create versions_local.env and change 'REGISTRY', 'ORG' and image version.
-
 ```shell
 $ source ../versions_local.env
 $ ./bin/opm index add --build-tool podman --mode semver --tag "$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR_CATALOG" --bundles "$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR_BUNDLE"
 $ podman push "$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR_CATALOG"
 ```
 
-Define "$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR_CATALOG" in olm/catalogsource.yaml and/or olm/catalogsource-openshift.yaml and invoke the commands above to apply catalog source and subscription.
+Define "$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR_CATALOG" in olm/catalogsource.yaml and/or olm/catalogsource-openshift.yaml and invoke the commands above to update the catalog source and subscription.
 
 ### Alternative
 
@@ -224,12 +220,10 @@ $ operator-sdk run bundle "$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR_BUNDLE" -n
 
 Only needed for OpenShift:
 
-These steps allow the default Prometheus instance on OpenShift to monitor the resources deployed by the application operator.  In addition, because this instance is used to monitor other k8s resources, it requires authentication and can only be accessed via https.  Therefore additional secrets must be created providing a certificate and bearer token which are used by the [application scaler](../operator-application-scaler/README.md) job to access the Prometheus API.  Additional RBAC permissions are also required.
+These steps allow the default Prometheus instance on OpenShift to monitor the resources deployed by the application operator.  In addition, because this instance is used to monitor other k8s resources, it requires authentication and can only be accessed via https.  Therefore additional secrets must be created providing a certificate and bearer token which are used by the [operator-application-scaler](https://github.com/IBM/operator-sample-go/tree/main/operator-application-scaler) application to access the Prometheus API.  Additional RBAC permissions are also required, but these are created by the application operator.
 
 ```shell
 $ oc label namespace application-beta openshift.io/cluster-monitoring="true"
-$ cd operator-application
-$ kubectl apply -f prometheus/role-openshift.yaml
 $ oc get secrets -n openshift-ingress
 ```
 Locate the default TLS secret with type 'kubernetes.io/tls', e.g. 'deleeuw-ocp-cluster-162e406f043e20da9b0ef0731954a894-0000'
@@ -239,21 +233,3 @@ kubectl create secret generic prometheus-cert-secret --from-file=/tmp/tls.crt -n
 oc sa get-token -n openshift-monitoring prometheus-k8s > /tmp/token.txt
 kubectl create secret generic prometheus-token-secret --from-file=/tmp/token.txt -n application-beta
 ```
-
-For both OpenShift and Kubernetes:
-
-```shell
-$ cd operator-application
-$ kubectl apply -f prometheus/role-all.yaml
-```
-
-For both OpenShift and Kubernetes, open the Prometheus dashboard:
-
-```shell
-$ kubectl port-forward service/prometheus-operated -n monitoring 9090
-or for OpenShift:
-$ kubectl port-forward service/prometheus-operated -n openshift-monitoring 9090
-$ open http://localhost:9090/graph
-```
-
-Search for 'reconcile_launched_total' and 'application_net_heidloff_GreetingResource_countHelloEndpointInvoked_total'.
