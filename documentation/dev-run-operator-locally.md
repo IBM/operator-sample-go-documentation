@@ -11,7 +11,9 @@ $ cd operator-database
 $ make install run
 ```
 
-From a second terminal run this command:
+Alternatively, to debug the operator in VSCode, press F5 (Run - Start Debugging) instead of 'make install run'. The directory 'operator-application' needs to be root in VSCode.
+
+From a second terminal run this command to create an instance of the DatabaseCluster and Database custom resources:
 
 ```shell
 $ kubectl apply -f config/samples/database.sample_v1alpha1_database.yaml
@@ -31,7 +33,9 @@ $ make uninstall
 
 🔴 IMPORTANT: First install the [prerequistes](./prerequisites.md)! If you don't do it, it won't work :)
 
-### Create database resource
+### Create database custom resource definition
+
+The application operator will not install until the database operator is also installed.  Hence to test the application operator, you must first create the required database custom resource definition.
 
 ```shell
 $ cd operator-application
@@ -48,15 +52,13 @@ $ cd operator-application
 $ make install run ENABLE_WEBHOOKS=false
 ```
 
-From another terminal run this command:
+From another terminal run this command to create an instance of the Application custom resource:
 
 ```shell
 $ kubectl apply -f config/samples/application.sample_v1beta1_application.yaml
 ```
 
-Debug the operator (without webhooks):
-
-To debug, press F5 (Run - Start Debugging) instead of 'make install run'. The directory 'operator-application' needs to be root in VSCode.
+Alternatively, to debug the operator in VSCode (without webhooks), press F5 (Run - Start Debugging) instead of 'make install run'. The directory 'operator-application' needs to be root in VSCode.
 
 ### Verify the setup
 
