@@ -1,4 +1,4 @@
-# Overview
+# Project Overview
 
 The [Operator Sample Go](https://github.com/IBM/operator-sample-go) project contains two operators and four applications:
 

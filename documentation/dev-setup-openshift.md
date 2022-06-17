@@ -1,7 +1,5 @@
 # Setting up a managed OpenShift Cluster
 
-### Description
-
 To deploy the operators described in the repository, either a Kubernetes or an OpenShift cluster could be used.
 The steps represeneted in this reposiory are based on a managed OpenShift cluster on IBM public cloud. The link provided below helps to create an OpenShift cluster inside a VPC on IBM cloud.
 

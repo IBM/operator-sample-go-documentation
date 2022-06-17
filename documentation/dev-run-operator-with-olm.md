@@ -1,4 +1,6 @@
-# Setup of required executable bin files
+# Database Operator - Operator deployed with OLM
+
+### Setup of required executable bin files
 
 The repo does not contain certain bin files which are required to create the OLM catalog image.
 
@@ -12,7 +14,6 @@ sh scripts/check-binfiles-for-operator-sdk-projects.sh
 
   > Note: You need to interact with the script. These are the temp values you can use for the script execution: `'Display name   : myproblemfix'`, `Description    : myproblemfix`, `Provider's name: myproblemfix`, `Any relevant URL:`, `Comma-separated keywords   : myproblemfix` `Comma-separated maintainers: myproblemfix@myproblemfix.net`. 
 
-# Database Operator - Operator deployed with OLM
 
 🔴 IMPORTANT: First install the [prerequistes](./prerequisites.md)! If you don't do it, it won't work :)
 

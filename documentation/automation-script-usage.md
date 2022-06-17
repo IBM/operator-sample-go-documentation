@@ -1,4 +1,4 @@
-# Example script invocations
+# Example Script Usage
 
 To set up the a demo environment using 'golden images' on OpenShift:
 ```

@@ -1,4 +1,4 @@
-# Overview and Scenarios
+# Operators Overview and Scenarios
 
 We're all familiar publishers using app stores to reach mass audiences for mobile apps.  How is this possible for enterprise applications?  The answer is via marketplaces.  Operators support the packaging of kubernetes based enterprise applications so they can be shared and promoted in various marketplaces and catalogs. This enables enterprise applications to made available digitally in a self-service fashion.
 

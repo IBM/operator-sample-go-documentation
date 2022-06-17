@@ -1,7 +1,5 @@
 # Setting up IBM Kubernetes Services
 
-### Description
-
 To deploy the operators described in the repository, either a Kubernetes or an OpenShift cluster could be used.
 The steps represeneted in this reposiory are based on a managed Kubernetes cluster on IBM public cloud. The link provided below helps to create a Kubernetes cluster inside a VPC on IBM Cloud.
 
