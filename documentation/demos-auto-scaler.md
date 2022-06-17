@@ -26,12 +26,13 @@ For this demo, the auto-scaling decision logic is simple.  If the /hello endpoin
 
 ### Commands to demo the database backup use case
 
-```
 Create the Application resource:
+```
 cd operator-application
 oc apply -f config/samples/application.sample_v1beta1_application.yaml
-
+```
 After invoking /hello more than 6 times, manually trigger the CronJob which launches the operator-application-scaler application:
+```
 kubectl create job --from=cronjob/application-scaler manuallytriggered -n application-beta
 ```
 
