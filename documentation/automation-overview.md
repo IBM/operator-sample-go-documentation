@@ -5,7 +5,7 @@ Automation scripts are the recommended way to deploy the sample operators.  The 
 
 * Verify workstation prerequisites
 * Install required components to a Kubernetes or OpenShift cluster
-* Create a 'demo environment' which deploys working golden images to OpenShift
+* Create a 'demo environment' which deploys working golden images to a Kubernetes or OpenShift cluster
 * Continous integration deployment which builds all operators & applications, pushes to a registry and deploys using OLM to either Kubernetes or OpenShift
 
 
