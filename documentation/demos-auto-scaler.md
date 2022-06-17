@@ -16,7 +16,7 @@ The simple-microservice application connects to the database-service application
 
 ### Prometheus Metrics
 
-The simple-microservice application publishes metrics which are collected by Prometheus monitoring, which is installed by default on OpenShift. In particular, the metric indicates how many times the /hello endpoint has been invoked.  It is on the basis of this data that auto-scaling decisions are made.  Prometheus metrics can be manually queried from the OpenShift dashboard.
+The simple-microservice application publishes metrics which are collected by Prometheus monitoring, which is installed by default on OpenShift. In particular, the metric indicates how many times the /hello endpoint has been invoked.  It is on the basis of this data that auto-scaling decisions are made.  Prometheus metrics can be manually queried from the OpenShift dashboard, search for ```application_net_heidloff_GreetingResource_countHelloEndpointInvoked_total```
 
 ![image](./images/demo32.png) 
 
@@ -27,7 +27,12 @@ For this demo, the auto-scaling decision logic is simple.  If the /hello endpoin
 ### Commands to demo the database backup use case
 
 ```
-...
+Create the Application resource:
+cd operator-application
+oc apply -f config/samples/application.sample_v1beta1_application.yaml
+
+After invoking /hello more than 6 times, manually trigger the CronJob which launches the operator-application-scaler application:
+kubectl create job --from=cronjob/application-scaler manuallytriggered -n application-beta
 ```
 
 ### How Does it Work?
