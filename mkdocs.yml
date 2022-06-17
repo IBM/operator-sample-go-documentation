@@ -26,14 +26,15 @@ nav:
     - 2.7 Run operators with OLM: ./dev-run-operator-with-olm.md
   - 3. Demos:
     - 3.1 Overview: ./demos-overview.md
-    - 3.12 Setup: ./demos-setup.md
-    - 3.2 OperatorHub: ./demos-operatorhub.md
-    - 3.3 Database backup: ./demos-database-backup.md
-    - 3.4 Auto-scaler: ./demos-auto-scaler.md
+    - 3.2 Setup: ./demos-setup.md
+    - 3.3 OperatorHub: ./demos-operatorhub.md
+    - 3.4 Database backup: ./demos-database-backup.md
+    - 3.5 Auto-scaler: ./demos-auto-scaler.md
   - 4. Automated build and deployment:
     - 4.1 Overview: ./automation-overview.md
     - 4.2 Script Usage: ./automation-script-usage.md
-    - 4.3 Reference: ./automation-version-references.md
+    - 4.3 Parameter Reference: ./automation-version-reference.md
+    - 4.4 Version Reference: ./automation-parameter-reference.md
   - 5. Overview and Scenarios:
     - 5.1 Overview: ./overview-and-scenarios.md
     - 5.2 Why you should build Kubernetes Operators: ./overview-why-build-k8s-operators.md
