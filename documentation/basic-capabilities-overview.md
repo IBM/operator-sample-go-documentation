@@ -1,4 +1,4 @@
-# Overview basic capabilities
+# Overview Basic Capabilities
 
 * [Creating and updating Resources](http://heidloff.net/article/updating-resources-kubernetes-operators/)
 * [Deleting Resources](http://heidloff.net/article/deleting-resources-kubernetes-operators/)

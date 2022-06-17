@@ -1,4 +1,4 @@
-# Script parameters
+# Script Parameter Reference
 
 ### Reference Information
 

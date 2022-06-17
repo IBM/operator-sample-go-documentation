@@ -1,4 +1,4 @@
-# Automation with scripts
+# Automation with Scripts
 
 Automation scripts are the recommended way to deploy the sample operators.  The scripts provide the following functions:
 
