@@ -12,15 +12,6 @@ sh scripts/check-binfiles-for-operator-sdk-projects.sh
 
   > Note: You need to interact with the script. These are the temp values you can use for the script execution: `'Display name   : myproblemfix'`, `Description    : myproblemfix`, `Provider's name: myproblemfix`, `Any relevant URL:`, `Comma-separated keywords   : myproblemfix` `Comma-separated maintainers: myproblemfix@myproblemfix.net`. 
 
-Example output:
-```shell
-***  Bin folder status: operator-database
-controller-gen  kustomize       opm             setup-envtest
-***  Bin folder status: operator-database
-controller-gen  kustomize       opm             setup-envtest
-```
-
-
 # Database Operator - Operator deployed with OLM
 
 🔴 IMPORTANT: First install the [prerequistes](./prerequisites.md)! If you don't do it, it won't work :)
@@ -120,7 +111,6 @@ $ operator-sdk run bundle "$REGISTRY/$ORG/$IMAGE_DATABASE_OPERATOR_BUNDLE" -n op
 or for OpenShift:
 $ operator-sdk run bundle "$REGISTRY/$ORG/$IMAGE_DATABASE_OPERATOR_BUNDLE" -n openshift-operators
 ```
-
 
 # Application Operator - Operator deployed with OLM
 
