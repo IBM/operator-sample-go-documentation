@@ -1,4 +1,4 @@
-# OperatorHub
+# Installation via OperatorHub
 
 ### Introduction to OpenShift OperatorHub
 
@@ -53,6 +53,23 @@ The database operator defines three CRDs:
 The application operator defines one CRD:
 
 * Application API/CRD creates a frontend web application by creating Kubernetes resources like secrets and deployments, and in addition, it uses the custom resources to create a ‘database schema’ (NB. It doesn't actually do this but this was the intention for this CR. For now, the database is currently hardcoded with its data).
+
+
+### Commands to demo the installation use case
+
+In this section of the demo, the operators were deployed using the OpenShift OperatorHub UI.  The same result can be achieved with CLI, which may be useful if testing with Kubernetes which does not have a user interface to manage operators.
+
+#### For OpenShift:
+```
+$ kubectl apply -f olm/catalogsource-openshift.yaml
+$ kubectl apply -f olm/subscription-openshift.yaml 
+```
+
+#### For Kubernetes:
+```
+$ kubectl apply -f olm/catalogsource.yaml
+$ kubectl apply -f olm/subscription.yaml 
+```
 
 ### How Does it Work?
 
