@@ -8,3 +8,4 @@
 * [Initialization and Validation Webhooks](http://heidloff.net/article/developing-initialization-validation-webhooks-kubernetes-operators/)
 * [Converting Custom Resource Versions](http://heidloff.net/article/converting-custom-resource-versions-kubernetes-operators/)
 * [Defining Dependencies](http://heidloff.net/article/defining-dependencies-kubernetes-operators/)
+* [Deploying Operators with the Operator Lifecycle Manager](http://heidloff.net/article/deploying-operators-operator-lifecycle-manager-olm/)
