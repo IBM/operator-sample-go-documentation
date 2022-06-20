@@ -1,5 +1,15 @@
 # Example Script Usage
 
+To install required cluster components for Kubernetes:
+```
+install-required-kubernetes-components.sh
+```
+
+To install required cluster components for OpenShift:
+```
+install-required-openshift-components.sh
+```
+
 To set up the a demo environment using 'golden images' on OpenShift:
 ```
 sh scripts/demo-openshift-operators.sh app demo reset 
