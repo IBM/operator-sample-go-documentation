@@ -31,7 +31,14 @@ Create the Application resource:
 cd operator-application
 oc apply -f config/samples/application.sample_v1beta1_application.yaml
 ```
-After invoking /hello more than 6 times, manually trigger the CronJob which launches the operator-application-scaler application:
+
+
+Invoke the /hello endpoint more than 6 times, either via the OpenShift or use this command:
+```
+kubectl exec -n application-beta $(kubectl get pods -n application-beta | awk '/application-deployment-microservice/ {print $1;exit}') --container application-microservice -- curl http://localhost:8081/hello
+```
+
+Manually trigger the CronJob which launches the operator-application-scaler application:
 ```
 kubectl create job --from=cronjob/application-scaler manuallytriggered -n application-beta
 ```
