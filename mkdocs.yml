@@ -1,6 +1,6 @@
 # Project information
 site_name:  Kubernetes Operator Patterns and Best Practises Documentation
-site_url: https://github.com/thomassuedbroecker/operator-sample-go-documentation
+site_url: https://github.com/ibm/operator-sample-go-documentation
 site_author:  Adam de Leeuw, Alain Airom, Diwakar Tiwari, Niklas Heidloff,  Sundeep Binaylal Golla, Thomas Suedbroecker
 
 # Repository
@@ -33,8 +33,8 @@ nav:
   - 4. Automated build and deployment:
     - 4.1 Overview: ./automation-overview.md
     - 4.2 Script Usage: ./automation-script-usage.md
-    - 4.3 Parameter Reference: ./automation-parameter-reference.md
-    - 4.4 Version Reference: ./automation-version-reference.md
+    - 4.3 Parameter Reference: ./automation-version-reference.md
+    - 4.4 Version Reference: ./automation-parameter-reference.md
   - 5. Overview and Scenarios:
     - 5.1 Overview: ./overview-and-scenarios.md
     - 5.2 Why you should build Kubernetes Operators: ./overview-why-build-k8s-operators.md
