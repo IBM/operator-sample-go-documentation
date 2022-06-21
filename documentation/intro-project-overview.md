@@ -6,7 +6,7 @@ The [Operator Sample Go](https://github.com/IBM/operator-sample-go) project cont
 
 ### Application Operator
 
-The application operator deploys and manages a front-end micro-service which provides a simple web UI.  The micro-service provides a single HTTP enpoint:
+The application operator deploys and manages a front-end micro-service which provides a simple web UI.  The micro-service application provides a single HTTP enpoint:
     
 >**/hello** - Renders a Hello greeting to the names persisted in the corresponding database.
     
@@ -24,8 +24,7 @@ The application operator can be found in the [operator-application](https://gith
 
 The database operator relates to the backend database which provides a very simple file based database, included in this project.  It was created purely to help demonstrate the capabilities of operators.
 
-The database implements a cluster where one pod is the 'leader' to which applications can perform reads and writes.  Further pods are 'followers' providing high availability and scalability.  Followers synchronize the data from the leader, but 
-only provide read capability.  Each pod of the database cluster stores its data to a persistent volume.
+The database implements a cluster where one pod is the 'leader' to which applications can perform reads and writes.  Further pods are 'followers' providing high availability and scalability.  Followers synchronize the data from the leader, but only provide read capability.  Each pod of the database cluster stores its data to a persistent volume.
     
 The database is very opinionated and only supports a single use case - storing a list of first & last names, persisted in a JSON file.  Therefore only a single API is provided:
     
@@ -41,16 +40,18 @@ The database operator is responsible for the following tasks:
 The database operator can be found in the [operator-database](https://github.com/IBM/operator-sample-go/tree/main/operator-database) folder.
 
 
-### Assosiated Applications & Scripts
+### Applications
 
-The repo provides the following applications, used by the operators
+The repo provides the following applications, used by the operators:
 
 * [simple-microservice](https://github.com/IBM/operator-sample-go/tree/main/simple-microservice) - The front end web application, written in Java using Quarkus
 * [database-service](https://github.com/IBM/operator-sample-go/tree/main/database-service) - The simple database application deployed by the database operator, written in Java using Quarkus
 * [operator-database-backup](https://github.com/IBM/operator-sample-go/tree/main/operator-database-backup) - A Go application to query the database and upload the data to cloud object storage.  This container is launched on a schedule by the database operator
 * [operator-application-scaler](https://github.com/IBM/operator-sample-go/tree/main/operator-application-scaler) - A Go application used to make autoscaling decisions for the front-end.  It queries Prometheus metrics exposed by the simple-microservice, and if necessary, modifies the custom resource which defines the size of the front-end deployment.  This container is launched on a schedule by the application operator
 
-In addition, the repo includes:
+### Scripts
+
+The repo also includes scripts:
 
 * [scripts](https://github.com/IBM/operator-sample-go/tree/main/scripts) - Automation to verify workstation prerequisites, build all container images and deploy to a Kubernetes or OpenShift cluster.  Alternatively, the scripts can deploy pre-built 'golden' container images.
 
