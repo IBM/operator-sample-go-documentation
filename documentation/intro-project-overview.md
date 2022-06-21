@@ -1,5 +1,7 @@
 # Project Overview
 
+[![IBM Build Labs - Co-creation with Partners](https://img.youtube.com/vi/WDBn-kgkct4/0.jpg)](https://www.youtube.com/watch?v=WDBn-kgkct4 "Click play on youtube")
+
 The [Operator Sample Go](https://github.com/IBM/operator-sample-go) project contains two operators and four applications:
 
 ### Application Operator
