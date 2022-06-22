@@ -21,3 +21,12 @@ The sample operators in this project go far beyond a typical operator getting st
 * More detailed overview and demo
 
 [![Unleash the Power of your Applications](https://img.youtube.com/vi/D6njEyXPieg/0.jpg)](https://www.youtube.com/watch?v=D6njEyXPieg "Click play on youtube")
+
+### Credits
+
+  * [Niklas Heidloff](https://twitter.com/nheidloff)
+  * [Alain Airom](https://twitter.com/AAairom)
+  * [Adam de Leeuw](https://www.linkedin.com/in/deleeuwa/) 
+  * [Diwakar Tiwari](https://twitter.com/diwakarptiwari)
+  * [Thomas Südbröcker](https://twitter.com/tsuedbroecker)
+  * [Vishal Ramani](https://www.linkedin.com/in/vishalramani/)
