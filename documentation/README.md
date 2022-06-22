@@ -1,7 +1,5 @@
 # Operator sample go documentation
 
-**UNDER CONSTRUCTION**
-
 ![Getting Started](./images/operators-benefits.jpeg)
 
 ### "Operator Sample Go" project
