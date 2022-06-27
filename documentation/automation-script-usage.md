@@ -22,7 +22,7 @@ sh scripts/demo-kubernetes-operators.sh app demo reset 
 
 To build all images, push to a registry and deploy to OpenShift:
 ```
-sh scripts/ci-create-operators-operators.sh app local reset podman_reset
+sh scripts/ci-create-operators-openshift.sh app local reset podman_reset
 ```
 
 To build all images, push to a registry and deploy to Kubernetes:
