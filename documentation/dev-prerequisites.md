@@ -69,6 +69,8 @@ $ code .
    ```
 
 
+To setup the Visual Studio Code IDE you can also refer to the [setup](./dev-setup-vscode.md) page.
+
 ### 3. Kubernetes Cluster
 
 Any newer Kubernetes cluster should work. You can also use OpenShift. The Operator SDK version v1.19.1 has been [tested](https://github.com/kubernetes/client-go#versioning) with Kubernetes v1.23. 
