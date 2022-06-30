@@ -13,34 +13,34 @@ In order to run the samples you need following:
 Verify your prerequisites with (scripts/check-prerequisites.sh) script (the repository needs to be cloned first):
 
 ```sh
-$ git clone https://github.com/ibm/operator-sample-go.git
-$ cd operator-sample-go
-$ sh scripts/check-prerequisites.sh
+git clone https://github.com/ibm/operator-sample-go.git
+cd operator-sample-go
+sh scripts/check-prerequisites.sh
 ```
 
 ### 1.1. Operator SDK
 
 🔴 IMPORTANT: There are issues with different combinations of operator-sdk and go. This repo has been tested with **operator-sdk 1.19.1** and **go 1.17.6**. If you don't use this combination, binaries will be missing. Brew doesn't work either.
 
-```
-$ CURRENT_USER=$(id -un)
-$ sudo go clean -cache
-$ brew uninstall operator-sdk
-$ brew uninstall go
-$ sudo rm -rf /usr/local/Cellar/go
-$ sudo rm -rf /usr/local/go
-$ sudo rm -rf /Users/$CURRENT_USER/go
-$ mkdir operator-sdk-install
-$ cd operator-sdk-install
-$ export ARCH=$(case $(uname -m) in x86_64) echo -n amd64 ;; aarch64) echo -n arm64 ;; *) echo -n $(uname -m) ;; esac)
-$ export OS=$(uname | awk '{print tolower($0)}')
-$ export OPERATOR_SDK_DL_URL=https://github.com/operator-framework/operator-sdk/releases/download/v1.19.1
-$ curl -LO ${OPERATOR_SDK_DL_URL}/operator-sdk_${OS}_${ARCH}
-$ chmod +x operator-sdk_${OS}_${ARCH} && sudo mv operator-sdk_${OS}_${ARCH} /usr/local/bin/operator-sdk
-$ curl -LO https://go.dev/dl/go1.17.6.darwin-amd64.pkg
-$ sudo installer -pkg go1.17.6.darwin-amd64.pkg -target /
-$ operator-sdk version
-$ go version
+```shell
+CURRENT_USER=$(id -un)
+sudo go clean -cache
+brew uninstall operator-sdk
+brew uninstall go
+sudo rm -rf /usr/local/Cellar/go
+sudo rm -rf /usr/local/go
+sudo rm -rf /Users/$CURRENT_USER/go
+mkdir operator-sdk-install
+cd operator-sdk-install
+export ARCH=$(case $(uname -m) in x86_64) echo -n amd64 ;; aarch64) echo -n arm64 ;; *) echo -n $(uname -m) ;; esac)
+export OS=$(uname | awk '{print tolower($0)}')
+export OPERATOR_SDK_DL_URL=https://github.com/operator-framework/operator-sdk/releases/download/v1.19.1
+curl -LO ${OPERATOR_SDK_DL_URL}/operator-sdk_${OS}_${ARCH}
+chmod +x operator-sdk_${OS}_${ARCH} && sudo mv operator-sdk_${OS}_${ARCH} /usr/local/bin/operator-sdk
+curl -LO https://go.dev/dl/go1.17.6.darwin-amd64.pkg
+sudo installer -pkg go1.17.6.darwin-amd64.pkg -target /
+operator-sdk version
+go version
 ```
 
 ### 2. Editing the code with Visual Studio Code
@@ -48,8 +48,8 @@ $ go version
 Verify your path, and if needed go to the folder where the code is cloned.
 
 ```shell
-$ cd operator-sample-go
-$ code .
+cd operator-sample-go
+code .
 ```
 
 🔴 IMPORTANT: If after lauching VS Code and opening the application code the "import" section in the code displays erros as shown below, do the steps that follows.
@@ -67,7 +67,7 @@ $ code .
 
 
 ```shell
-$ go mod tidy
+go mod tidy
 ```
 
 🔴 To setup the Visual Studio Code IDE you can also refer to the [setup the IDE](./dev-setup-vscode.md) description page.
@@ -84,14 +84,14 @@ We have tested the two operators with ...
 Log in to Kubernetes or OpenShift, for example:
 
 ```
-$ ibmcloud login -a cloud.ibm.com -r eu-de -g resource-group-niklas-heidloff --sso
-$ ibmcloud ks cluster config --cluster xxxxxxx
-$ kubectl get all
+ibmcloud login -a cloud.ibm.com -r eu-de -g resource-group-niklas-heidloff --sso
+ibmcloud ks cluster config --cluster xxxxxxx
+kubectl get all
 ```
 
 ```
-$ oc login --token=sha256~xxxxx --server=https://c106-e.us-south.containers.cloud.ibm.com:32335
-$ kubectl get all
+oc login --token=sha256~xxxxx --server=https://c106-e.us-south.containers.cloud.ibm.com:32335
+kubectl get all
 ```
 
 ### 4. Required Kubernetes Components
@@ -105,14 +105,14 @@ OpenShift comes with certain components preinstalled which is why there are two 
 **Kubernetes**
 
 ```
-$ sh scripts/install-required-kubernetes-components.sh
+sh scripts/install-required-kubernetes-components.sh
 ```
 Note: Although it is possible to install the sample operators without OLM, the above script installs it anyway.  It is a required component to install cert-manager and Prometheus.
 
 **OpenShift**
 
 ```
-$ kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.7.2/cert-manager.yaml
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.7.2/cert-manager.yaml
 ```
 
 ### 5. Image Registry

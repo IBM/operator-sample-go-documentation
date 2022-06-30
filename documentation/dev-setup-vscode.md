@@ -3,15 +3,15 @@
 In the documentation it is recommended working directly in each operator subfolder regarding the operator which is being deployed. For instance;
 
 ```shell
-$ cd operator-sample-go
-$ code .
+cd operator-sample-go
+code .
 ```
 
 or;
 
 ```shell
-$ cd operator-database
-$ make install run
+operator-database
+make install run
 ```
 
 This method present the advantage of working with the portion of desired code. However if you want to open the root folder of the project, and have access to all project's files at all time, you will probably see errors in the import file of each subfolder code, as it is shown below.
@@ -39,7 +39,7 @@ To reolve this problem, the easiest way is to create a workspace, and add each a
 
 
 ```shell
-$ go mod tidy
+go mod tidy
 ```
 
 Now you can have several integrated terminals opened for each of the operator folders for instance, and all the import error problems will be resolved.
