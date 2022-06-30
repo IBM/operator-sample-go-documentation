@@ -56,19 +56,21 @@ $ code .
 
 ![go_import_errors](./images/go_import_errors.png)
 
-1. Select the folder of the code on the file explorer of VSCode.
+- [ ] Select the folder of the code on the file explorer of VSCode.
 
-   ![open-integrated-terminal](./images/open-integrated-terminal.png)
 
-2. Right click and select the option to open the integrated terminal.
+![open-integrated-terminal](./images/open-integrated-terminal.png)
 
-3. Type the following instruction to resolve the problem:
+- [ ] Right click and select the option to open the integrated terminal.
 
-   ```shell
-   $ go mod tidy
-   ```
+- [ ] Type the following instruction to resolve the problem:
 
-To setup the Visual Studio Code IDE you can also refer to the [setup the IDE](./dev-setup-vscode.md) description page.
+
+```shell
+$ go mod tidy
+```
+
+🔴 To setup the Visual Studio Code IDE you can also refer to the [setup the IDE](./dev-setup-vscode.md) description page.
 
 ### 3. Kubernetes Cluster
 

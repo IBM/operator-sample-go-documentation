@@ -20,22 +20,26 @@ This method present the advantage of working with the portion of desired code. H
 
 To reolve this problem, the easiest way is to create a workspace, and add each application subfloder to the workspace.
 
-1. First, create a new workspace.
+- [ ] First, create a new workspace.
 
-   ![buildworkspace](./images/buildworkspace.png)
 
-2. Add folders to the workspace.
+![buildworkspace](./images/buildworkspace.png)
 
-   ![addfoldertoworkspace](./images/addfoldertoworkspace.png)
+- [ ] Add folders to the workspace.
 
-3. Open the integrated terminal from the IDE for a subfolder, which is one of the operators in this case.
 
-   ![open-integrated-terminal](./images/open-integrated-terminal.png)
+![addfoldertoworkspace](./images/addfoldertoworkspace.png)
 
-4. Run the "go mod tidy" command.
+- [ ] Open the integrated terminal from the IDE for a subfolder, which is one of the operators in this case.
 
-   ```shell
-   $ go mod tidy
-   ```
 
-   Now you can have several integrated terminals opened for each of the operator folders for instance, and all the import error problems will be resolved.
+![open-integrated-terminal](./images/open-integrated-terminal.png)
+
+- [ ] Run the "go mod tidy" command.
+
+
+```shell
+$ go mod tidy
+```
+
+Now you can have several integrated terminals opened for each of the operator folders for instance, and all the import error problems will be resolved.
