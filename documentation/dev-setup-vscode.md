@@ -22,7 +22,7 @@ To reolve this problem, the easiest way is to create a workspace, and add each a
 
 1. First, create a new workspace.
 
-   ![buildworkspace](/Users/alainairom/Devs/operator-sample-go-documentation/documentation/images/buildworkspace.png)
+   ![buildworkspace](./images/buildworkspace.png)
 
 2. Add folders to the workspace.
 
