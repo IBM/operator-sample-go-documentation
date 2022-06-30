@@ -54,11 +54,11 @@ $ code .
 
 🔴 IMPORTANT: If after lauching VS Code and opening the application code the "import" section in the code displays erros as shonw below, do the steps that follows.
 
-![go_import_errors](/Users/alainairom/Devs/operator-sample-go-documentation/documentation/images/go_import_errors.png)
+![go_import_errors](./images/go_import_errors.png)
 
 1. Select the folder of the code on the file explorer of VSCode.
 
-   ![open-integrated-terminal](/Users/alainairom/Devs/operator-sample-go-documentation/documentation/images/open-integrated-terminal.png)
+   ![open-integrated-terminal](./images/open-integrated-terminal.png)
 
 2. Right click and select the option to open the integrated terminal.
 
