@@ -30,7 +30,7 @@ To reolve this problem, the easiest way is to create a workspace, and add each a
 
 3. Open the integrated terminal from the IDE for a subfolder, which is one of the operators in this case.
 
-   ![open-integrated-terminal](/Users/alainairom/Devs/operator-sample-go-documentation/documentation/images/open-integrated-terminal.png)
+   ![open-integrated-terminal](./images/open-integrated-terminal.png)
 
 4. Run the "go mod tidy" command.
 
