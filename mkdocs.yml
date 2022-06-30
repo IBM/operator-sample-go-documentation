@@ -24,6 +24,7 @@ nav:
     - 2.5 Run operators locally: ./dev-run-operator-locally.md
     - 2.6 Run operators without OLM: ./dev-run-operators-without-olm.md
     - 2.7 Run operators with OLM: ./dev-run-operator-with-olm.md
+    - 2.8 Setup Visual Studio Code Environment: ./dev-setup-vscode.md
   - 3. Demos:
     - 3.1 Overview: ./demos-overview.md
     - 3.2 Setup: ./demos-setup.md
