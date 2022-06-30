@@ -68,6 +68,7 @@ $ code .
    $ go mod tidy
    ```
 
+To setup the Visual Studio Code IDE you can also refer to the [setup the IDE](./dev-setup-vscode.md) description page.
 
 ### 3. Kubernetes Cluster
 
