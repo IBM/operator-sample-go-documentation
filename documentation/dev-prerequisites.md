@@ -52,7 +52,7 @@ $ cd operator-sample-go
 $ code .
 ```
 
-🔴 IMPORTANT: If after lauching VS Code and opening the application code the "import" section in the code displays erros as shonw below, do the steps that follows.
+🔴 IMPORTANT: If after lauching VS Code and opening the application code the "import" section in the code displays erros as shown below, do the steps that follows.
 
 ![go_import_errors](./images/go_import_errors.png)
 
@@ -68,7 +68,6 @@ $ code .
    $ go mod tidy
    ```
 
-   
 
 ### 3. Kubernetes Cluster
 
