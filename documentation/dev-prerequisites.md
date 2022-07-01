@@ -2,7 +2,7 @@
 
 In order to run the samples you need following:
 
-### 1. Required CLIs
+### Required CLIs
 
 Install the required CLIs:
 
