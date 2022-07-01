@@ -4,21 +4,16 @@ In order to run the samples you need following:
 
 ### 1. Required CLIs
 
-1. [operator-sdk](https://sdk.operatorframework.io/docs/installation/) (comes with Golang)
-2. git
-3. kubectl
-4. podman
-5. Only if IBM Cloud is used: [ibmcloud](https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli)
+Install the required CLIs:
 
-Verify your prerequisites with (scripts/check-prerequisites.sh) script (the repository needs to be cloned first):
+* [operator-sdk](https://sdk.operatorframework.io/docs/installation/), which also provides Golang.  See [Operator SDK installation notes](#operator-sdk-installation) below.
+* git
+* kubectl or oc
+* podman
+* Only if IBM Cloud is used: [ibmcloud](https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli)
 
-```sh
-git clone https://github.com/ibm/operator-sample-go.git
-cd operator-sample-go
-sh scripts/check-prerequisites.sh
-```
 
-### 1.1. Operator SDK
+### Operator SDK Installation
 
 🔴 IMPORTANT: There are issues with different combinations of operator-sdk and go. This repo has been tested with **operator-sdk 1.19.1** and **go 1.17.6**. If you don't use this combination, binaries will be missing. Brew doesn't work either.
 
@@ -43,36 +38,41 @@ operator-sdk version
 go version
 ```
 
-### 2. Editing the code with Visual Studio Code
+### Editing the code with Visual Studio Code
 
-Verify your path, and if needed go to the folder where the code is cloned.
+The repo should be cloned with this command:
+
+```
+git clone https://github.com/ibm/operator-sample-go.git
+```
+
+The repo contains multiple folders containing the sample operators and applications.  If you open the root folder "operator-sample-go", you will find that VSCode reports errors in the source code.  Therefore you must open multiple VSCode windows for each folder, i.e:
 
 ```shell
-cd operator-sample-go
+cd operator-sample-go/operator-application
 code .
 ```
 
-🔴 IMPORTANT: If after lauching VS Code and opening the application code the "import" section in the code displays erros as shown below, do the steps that follows.
+Alternatively, if you prefer to see all folders in a single VSCode window, configure a [VSCode workspace](./dev-setup-vscode.md)
+
+🔴 IMPORTANT: When lauching VSCode for the first time, the code might display import errors as shown below.
 
 ![go_import_errors](./images/go_import_errors.png)
 
-- [ ] Select the folder of the code on the file explorer of VSCode.
+To resolve the errors, follow these steps:
 
+- [ ] Right-click the code folder in VSCode and select "Open in Integrated Terminal"
 
 ![open-integrated-terminal](./images/open-integrated-terminal.png)
 
-- [ ] Right click and select the option to open the integrated terminal.
-
-- [ ] Type the following instruction to resolve the problem:
-
+- [ ] Type the following command to import the required Go packages:
 
 ```shell
 go mod tidy
 ```
 
-🔴 To setup the Visual Studio Code IDE you can also refer to the [setup the IDE](./dev-setup-vscode.md) description page.
 
-### 3. Kubernetes Cluster
+### Create Kubernetes Cluster
 
 Any newer Kubernetes cluster should work. You can also use OpenShift. The Operator SDK version v1.19.1 has been [tested](https://github.com/kubernetes/client-go#versioning) with Kubernetes v1.23. 
 
@@ -94,7 +94,7 @@ oc login --token=sha256~xxxxx --server=https://c106-e.us-south.containers.cloud.
 kubectl get all
 ```
 
-### 4. Required Kubernetes Components
+### Install Required Kubernetes Components
 
 * cert-manager
 * OLM (Operator Lifecycle Manager)
@@ -107,15 +107,15 @@ OpenShift comes with certain components preinstalled which is why there are two 
 ```
 sh scripts/install-required-kubernetes-components.sh
 ```
-Note: Although it is possible to install the sample operators without OLM, the above script installs it anyway.  It is a required component to install cert-manager and Prometheus.
+Note: Although it is possible to install the sample operators without OLM, the above script installs it anyway.  It is a requirement to install cert-manager and Prometheus.
 
 **OpenShift**
 
 ```
-kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.7.2/cert-manager.yaml
+sh scripts/install-required-openshift-components.sh
 ```
 
-### 5. Image Registry
+### Image Registry
 
 If you want to run the samples without modifications, nothing needs to be changed.
 
@@ -146,4 +146,25 @@ export COMMON_TAG='v1.0.36'
 ```sh
 source versions_local.env
 podman login $REGISTRY
+```
+
+### Setup of the required executable `bin` files
+
+The repo does not contain certain bin files which are required to build operators.  The bin files (controller-gen, kustomize, opm, setup-envtest) are normally added to the operator project when initially created by the operator SDK tool. A script is provided to create a temp operator SDK project, copy the bin files to sample application and database operator projects, then delete the temp project when it has finished.
+
+```sh
+sh scripts/check-binfiles-for-operator-sdk-projects.sh
+```
+
+> Note: You need to interact with the script. These are the temp values you can use for the script execution: `'Display name   : myproblemfix'`, `Description    : myproblemfix`, `Provider's name: myproblemfix`, `Any relevant URL:`, `Comma-separated keywords   : myproblemfix`
+`Comma-separated maintainers: myproblemfix@myproblemfix.net`. 
+
+
+### Verify Prerequisites
+
+You can run to verify your workstation prerequisites with [the following script](https://github.com/IBM/operator-sample-go/blob/main/scripts/check-prerequisites.sh). The script informs you if the tools are installed, but you need to verify the versions in the terminal output with the [verified versions](./automation-version-references.md). 
+
+```sh
+cd operator-sample-go
+sh scripts/check-prerequisites.sh
 ```

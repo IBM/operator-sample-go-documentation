@@ -4,7 +4,7 @@ Although the operators have been tested with IBM Cloud Kubernetes Service, the d
 
 #### Clone the [repo](https://github.com/IBM/operator-sample-go)
 #### Provision an [IBM Cloud OpenShift service](./dev-setup-openshift.md)
-#### Install the workstation [prerequistes](./prerequisites.md)
+#### Install the workstation [prerequistes](./dev-prerequisites.md)
 #### Install all demo components to OpenShift
 
 ```

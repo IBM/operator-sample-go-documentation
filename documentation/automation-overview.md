@@ -10,59 +10,14 @@ Automation scripts are the recommended way to deploy the sample operators.  The 
 
 ### Required Setup
 
-#### a) Verification of the prerequisites
+Ensure you have followed the steps in the [prerequisites section](./dev-prerequisites.md)
 
-You can run to verify your workstation prerequisites with [the following script](https://github.com/IBM/operator-sample-go/blob/main/scripts/check-prerequisites.sh). The script informs you if the tools are installed, but you need to verify the versions in the terminal output with the [verified versions](./automation-version-references.md).  
-
-```sh
-sh scripts/check-prerequisites.sh
-```
-
-#### b) Setup of the required executable `bin` files
-
-The repo does not contain certain bin files which are required to build operators.  The bin files (controller-gen, kustomize, opm, setup-envtest) are normally added to the operator project when initially created by the operator SDK tool.  A script is provided to create a temp operator SDK project, copy the bin files to sample application and database operator projects, then delete the temp project when it has finished.
-
-```sh
-sh scripts/check-binfiles-for-operator-sdk-projects.sh
-```
-
-> Note: You need to interact with the script. These are the temp values you can use for the script execution: `'Display name   : myproblemfix'`, `Description    : myproblemfix`, `Provider's name: myproblemfix`, `Any relevant URL:`, `Comma-separated keywords   : myproblemfix`
-`Comma-separated maintainers: myproblemfix@myproblemfix.net`. 
-
-
-#### c) Setup the `version.env` and `version_local.env`
-
-If you want to run the samples without modifications, nothing needs to be changed.
-
-If you want to change them, replace `REGISTRY` and `ORG` with your registry account and change the version numbers in `versions_local.env` file. 
-
-* Create a `version_local.env` file based on the template.
-
-```sh
-cat versions_local.env-template > versions_local.env
-```
-
-* Open the `versions_local.env` in Visual Studio Code
-
-```sh
-code versions_local.env
-```
-
-* Change the values to your needs, e.g.
-
-```sh
-export REGISTRY='quay.io'
-export ORG='tsuedbroecker'
-export COMMON_TAG='v1.0.36'
-```
-
-* Open a terminal in the project and use the `versions_local.env` as input for your environment variables
+If you created a `version_local.env` file because you plan to build new container images, open a terminal window and use the `versions_local.env` as input for your environment variables:
 
 ```sh
 source versions_local.env
 podman login $REGISTRY
 ```
-
 
 ### Script automation process
 
