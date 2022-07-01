@@ -1,6 +1,6 @@
 # Setup Visual Studio Code Environment
 
-Opening the root folder 'operator-sample-go' in VSCode will result in import errors.
+Opening the root folder 'operator-sample-go' in VSCode will display import errors in the code.
 
 This can be resolved by working directly in each operator subfolder, e.g:
 
