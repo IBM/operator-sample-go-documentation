@@ -16,14 +16,16 @@ cd operator-database
 make install run
 ```
 
-This method has the advantage of working only with the relevant code. 
+This method has the advantage of working only with the relevant code, albeit you will need several VSCode windows open simultaneously.  Tip: you can use the following keyboard shortcut (on Mac) to switch between VSCode windows:
 
-Alternatively, if you prefer to access all folders in a single VSCode window, you can create a workspace and add each application subfloder to it.
+```
+Shift+cmd+`
+```
 
-- [ ] First, create a new workspace
+Alternatively, if you prefer to access all folders in a single VSCode window, you can create a VSCode workspace and add each application subfloder to it.
 
-![buildworkspace](./images/buildworkspace.png)
+- [ ] First, open a new VSCode window.  Select File->Add folder to workspace.  
 
-- [ ] Add folders to the workspace
+- [ ] Add each subfolder one at a time, i.e. operator-application, operator-database etc
 
 ![addfoldertoworkspace](./images/addfoldertoworkspace.png)
