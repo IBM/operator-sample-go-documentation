@@ -71,6 +71,9 @@ To resolve the errors, follow these steps:
 go mod tidy
 ```
 
+- [ ] Install Go extension plugin for Visual Studio Code. The VS Code Go extension provides rich language support for the Go programming language.
+
+![open-integrated-terminal](./images/GO-extension-plugin.png)
 
 ### Create Kubernetes Cluster
 

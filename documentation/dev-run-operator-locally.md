@@ -17,7 +17,7 @@ From a second terminal run this command to create an instance of the DatabaseClu
 
 ```shell
 $ kubectl apply -f config/samples/database.sample_v1alpha1_database.yaml
-$ kubectl apply -f config/samples/database.sample_v1alpha1_databasecluster
+$ kubectl apply -f config/samples/database.sample_v1alpha1_databasecluster.yaml
 ```
 
 ### Delete all resources
