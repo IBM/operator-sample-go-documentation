@@ -1,6 +1,6 @@
 # Database Operator - Setup and local Usage
 
-🔴 IMPORTANT: First install the [prerequistes](./prerequisites.md)! If you don't do it, it won't work :)
+🔴 IMPORTANT: First install the [prerequistes](./dev-prerequisites.md)! If you don't do it, it won't work :)
 
 ### Run operator locally
 

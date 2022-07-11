@@ -1,6 +1,6 @@
 # Database Operator - Operator deployed without OLM
 
-🔴 IMPORTANT: First install the [prerequistes](./prerequisites.md)! If you don't do it, it won't work :)
+🔴 IMPORTANT: First install the [prerequistes](./dev-prerequisites.md)! If you don't do it, it won't work :)
 
 ### Deploy database operator
 
@@ -44,7 +44,7 @@ $ podman push "$REGISTRY/$ORG/$IMAGE_DATABASE_OPERATOR"
 
 # Application Operator - Operator deployed without OLM
 
-🔴 IMPORTANT: First install the [prerequistes](./prerequisites.md)! If you don't do it, it won't work :)
+🔴 IMPORTANT: First install the [prerequistes](./dev-prerequisites.md)! If you don't do it, it won't work :)
 
 ### Deploy database operator
 

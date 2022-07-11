@@ -15,7 +15,7 @@ sh scripts/check-binfiles-for-operator-sdk-projects.sh
   > Note: You need to interact with the script. These are the temp values you can use for the script execution: `'Display name   : myproblemfix'`, `Description    : myproblemfix`, `Provider's name: myproblemfix`, `Any relevant URL:`, `Comma-separated keywords   : myproblemfix` `Comma-separated maintainers: myproblemfix@myproblemfix.net`. 
 
 
-🔴 IMPORTANT: First install the [prerequistes](./prerequisites.md)! If you don't do it, it won't work :)
+🔴 IMPORTANT: First install the [prerequistes](././dev-prerequisites.md)! If you don't do it, it won't work :)
 
 ### Deploy catalog source and subscription
 
@@ -115,7 +115,7 @@ $ operator-sdk run bundle "$REGISTRY/$ORG/$IMAGE_DATABASE_OPERATOR_BUNDLE" -n op
 
 # Application Operator - Operator deployed with OLM
 
-🔴 IMPORTANT: First install the [prerequistes](./prerequisites.md)! If you don't do it, it won't work :)
+🔴 IMPORTANT: First install the [prerequistes](././dev-prerequisites.md)! If you don't do it, it won't work :)
 
 ### Deploy database operator
 
