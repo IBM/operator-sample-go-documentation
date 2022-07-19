@@ -32,8 +32,8 @@ export OS=$(uname | awk '{print tolower($0)}')
 export OPERATOR_SDK_DL_URL=https://github.com/operator-framework/operator-sdk/releases/download/v1.19.1
 curl -LO ${OPERATOR_SDK_DL_URL}/operator-sdk_${OS}_${ARCH}
 chmod +x operator-sdk_${OS}_${ARCH} && sudo mv operator-sdk_${OS}_${ARCH} /usr/local/bin/operator-sdk
-curl -LO https://go.dev/dl/go1.17.6.darwin-amd64.pkg
-sudo installer -pkg go1.17.6.darwin-amd64.pkg -target /
+curl -LO https://go.dev/dl/go1.17.6.${OS}-${ARCH}.pkg
+sudo installer -pkg go1.17.6.${OS}-${ARCH}.pkg -target /
 operator-sdk version
 go version
 ```
