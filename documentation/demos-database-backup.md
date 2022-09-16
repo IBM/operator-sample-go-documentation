@@ -24,20 +24,21 @@ The database operator will reconcile the DatabaseBackup resource by creating a K
 
 ### Commands to demo the database backup use case
 
-Create the DatabaseCluster resource:
+1. Create the DatabaseCluster resource:
 ```
 cd operator-database
 oc apply -f config/samples/database.sample_v1alpha1_databasecluster.yaml
 ```
-Test the database-service from its terminal
+2. Test the database-service from its terminal
 ```
-curl -s http://localhost:8089/persons
+kubectl exec -n database database-cluster-0 --container database-app -- curl -s http://localhost:8089/api/persons
 ```
-Create the DatabaseBackup resource:
+3. Create the DatabaseBackup resource:
 ```
+cd operator-database
 oc apply -f config/samples/database.sample_v1alpha1_databasebackup.yaml
 ```
-Manually trigger the CronJob which launches the operator-database-backup application:
+4. Manually trigger the CronJob which launches the operator-database-backup application:
 ```
 kubectl create job --from=cronjob/databasebackup-manual-cronjob manuallytriggered -n database
 ```
