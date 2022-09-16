@@ -9,7 +9,7 @@ Although the operators have been tested with IBM Cloud Kubernetes Service, the d
 
 ```
 cd scripts
-sh scripts/demo-openshift-operators.sh app demo reset
+sh demo-openshift-operators.sh app demo reset
 ```
 
 #### Create a Cloud Object Storage (COS) Bucket and Access Secrets
