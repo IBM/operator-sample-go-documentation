@@ -60,7 +60,7 @@ HmacSecretAccessKey: "Add ecret_access_key from Credential JSON"
 kubectl apply -f secret.yaml
 ```
 
-#### Create a Route to the /hello enpoint for the micro-service application
+#### Create a Route to the /hello endpoint for the micro-service application
 
 Before you can create and test the route, you must have deployed the Application and DatabaseCluster resources.
 
@@ -74,10 +74,12 @@ oc apply -f config/samples/application.sample_v1beta1_application.yaml
 ```
 
 1. Login to Openshift console
-2. Go to the Networking section in left navigation 
-3. Select Routes
-4. Click the "Create Route" button
-5. Add following details
+2. Ensure you are in the "Administrator" view
+3. Ensure you are in the "application-beta" project 
+4. Go to the "Networking" section in left navigation
+5. Select "Routes"
+6. Click the "Create Route" button
+7. Add following details
     * Name the route "hello"
     * Add the path "/hello"
     * Select Service "application-service-microservice"
