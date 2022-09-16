@@ -31,7 +31,7 @@ Create service credentials
 
 1. From the Left Navigation Menu Click on "Service Credentials".
 2. Click the "New Credential" blue button.
-3. Enter the name of credentials.
+3. Enter the name of credentials. (_Example: `operator-sample-go-secret`_)
 4. Keep the Role to "writer".
 5. Click on "Adavanced options".
 6. Enable to the toggle to "Include HMAC Credentials".
