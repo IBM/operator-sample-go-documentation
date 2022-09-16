@@ -60,15 +60,23 @@ The application operator defines one CRD:
 In this section of the demo, the operators were deployed using the OpenShift OperatorHub UI.  The same result can be achieved with CLI, which may be useful if testing with Kubernetes which does not have a user interface to manage operators.
 
 #### For OpenShift:
-```
-$ kubectl apply -f olm/catalogsource-openshift.yaml
-$ kubectl apply -f olm/subscription-openshift.yaml 
+```sh
+cd operator-application/olm
+kubectl apply -f catalogsource-openshift.yaml
+kubectl apply -f subscription-openshift.yaml
+cd operator-database/olm
+kubectl apply -f catalogsource-openshift.yaml
+kubectl apply -f subscription-openshift.yaml
 ```
 
 #### For Kubernetes:
-```
-$ kubectl apply -f olm/catalogsource.yaml
-$ kubectl apply -f olm/subscription.yaml 
+```sh
+cd operator-application/olm
+kubectl apply -f catalogsource.yaml
+kubectl apply -f subscription.yaml
+cd operator-database/olm
+kubectl apply -f catalogsource-openshift.yaml
+kubectl apply -f subscription-openshift.yaml
 ```
 
 ### How Does it Work?
