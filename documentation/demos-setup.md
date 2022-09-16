@@ -40,18 +40,24 @@ Create service credentials
 
 Store the service credentials to a Kubernetes Secret. This is required for the operator-database-backup application which backs up data to Cloud Object Storage
 
-1. Edit file [secret.yaml](https://github.com/IBM/operator-sample-go/blob/main/operator-database-backup/kubernetes/secret.yaml) and change the following lines respectively:
+1. Navigate to the [secret.yaml](https://github.com/IBM/operator-sample-go/blob/main/operator-database-backup/kubernetes/secret.yaml) location (`operator-database-backup/kubernetes`) and open the file.
+
+```sh
+operator-database-backup/kubernetes
+nano secret.yaml
+```
+
+2. Edit file [secret.yaml](https://github.com/IBM/operator-sample-go/blob/main/operator-database-backup/kubernetes/secret.yaml) and change the following lines respectively:
 
 ```
 HmacAccessKeyId: "Add access_key_id from Credential JSON"
 HmacSecretAccessKey: "Add ecret_access_key from Credential JSON"
 ```
 
-2. Create the secret on the cluster
+3. Create the secret on the cluster.
 
-```
-cd operator-database-backup
-kubectl apply -f kubernetes/secret.yaml
+```sh
+kubectl apply -f secret.yaml
 ```
 
 #### Create a Route to the /hello enpoint for the micro-service application
