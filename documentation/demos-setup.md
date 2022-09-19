@@ -7,6 +7,8 @@ Although the operators have been tested with IBM Cloud Kubernetes Service, the d
 #### Install the workstation [prerequistes](./dev-prerequisites.md)
 #### Install all demo components to OpenShift
 
+Note: Ensure you are logged on to your OpenShift cluster, before you execute following command.
+
 ```
 cd scripts
 sh demo-openshift-operators.sh app demo reset
