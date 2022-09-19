@@ -1,0 +1,1454 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Adam de Leeuw, Alain Airom, Diwakar Tiwari, Niklas Heidloff,  Sundeep Binaylal Golla, Thomas Suedbroecker">
+      
+      
+        <link rel="canonical" href="https://github.com/ibm/operator-sample-go-documentation/demos-operatorhub/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.2">
+    
+    
+      
+        <title>3.3 OperatorHub - Kubernetes Operator Patterns and Best Practises Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.9f9400aa.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../docs/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installation-via-operatorhub" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Kubernetes Operator Patterns and Best Practises Documentation" class="md-header__button md-logo" aria-label="Kubernetes Operator Patterns and Best Practises Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Kubernetes Operator Patterns and Best Practises Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3.3 OperatorHub
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/IBM/operator-sample-go" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Kubernetes Operator Patterns and Best Practises
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Kubernetes Operator Patterns and Best Practises Documentation" class="md-nav__button md-logo" aria-label="Kubernetes Operator Patterns and Best Practises Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Kubernetes Operator Patterns and Best Practises Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/IBM/operator-sample-go" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Kubernetes Operator Patterns and Best Practises
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          1. Introduction to Operator Sample Go Project
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="1. Introduction to Operator Sample Go Project" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          1. Introduction to Operator Sample Go Project
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro-project-overview/" class="md-nav__link">
+        1.1 Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro-architecture-overview/" class="md-nav__link">
+        1.2 Architecture overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro-demo-use-cases/" class="md-nav__link">
+        1.3 Demo use cases overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro-masterclass/" class="md-nav__link">
+        1.4 Masterclass overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          2. Dev env
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2. Dev env" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          2. Dev env
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev-overview/" class="md-nav__link">
+        2.1 Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev-prerequisites/" class="md-nav__link">
+        2.2 Prereqs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev-setup-kubernetes/" class="md-nav__link">
+        2.3 Setup of IKS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev-setup-openshift/" class="md-nav__link">
+        2.4 Setup of OpenShift
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev-run-operator-locally/" class="md-nav__link">
+        2.5 Run operators locally
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev-run-operators-without-olm/" class="md-nav__link">
+        2.6 Run operators without OLM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev-run-operator-with-olm/" class="md-nav__link">
+        2.7 Run operators with OLM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev-setup-vscode/" class="md-nav__link">
+        2.8 Setup Visual Studio Code Environment
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          3. Demos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="3. Demos" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          3. Demos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../demos-overview/" class="md-nav__link">
+        3.1 Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../demos-setup/" class="md-nav__link">
+        3.2 Setup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          3.3 OperatorHub
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        3.3 OperatorHub
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-openshift-operatorhub" class="md-nav__link">
+    Introduction to OpenShift OperatorHub
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packaging-with-olm" class="md-nav__link">
+    Packaging with OLM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-resource-definitions" class="md-nav__link">
+    Custom Resource Definitions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands-to-demo-the-installation-use-case" class="md-nav__link">
+    Commands to demo the installation use case
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands to demo the installation use case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-openshift" class="md-nav__link">
+    For OpenShift:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-kubernetes" class="md-nav__link">
+    For Kubernetes:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-it-work" class="md-nav__link">
+    How Does it Work?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../demos-database-backup/" class="md-nav__link">
+        3.4 Database backup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../demos-auto-scaler/" class="md-nav__link">
+        3.5 Auto-scaler
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          4. Automated build and deployment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="4. Automated build and deployment" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          4. Automated build and deployment
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automation-overview/" class="md-nav__link">
+        4.1 Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automation-script-usage/" class="md-nav__link">
+        4.2 Script Usage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automation-version-reference/" class="md-nav__link">
+        4.3 Parameter Reference
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automation-parameter-reference/" class="md-nav__link">
+        4.4 Version Reference
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          5. Overview and Scenarios
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="5. Overview and Scenarios" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          5. Overview and Scenarios
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview-and-scenarios/" class="md-nav__link">
+        5.1 Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview-why-build-k8s-operators/" class="md-nav__link">
+        5.2 Why you should build Kubernetes Operators
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview-automatically-archive-data-with-k8s-operators/" class="md-nav__link">
+        5.3 Day 2 Scenario - Automatically Archiving Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview-scalling-applications-automatically-with-operators/" class="md-nav__link">
+        5.4 Day 2 Scenario - Automatically Scaling Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview-the-k8s-operator-metamodel/" class="md-nav__link">
+        5.5 The Kubernetes Operator Metamodel
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          6. Basic Capabilities
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="6. Basic Capabilities" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          6. Basic Capabilities
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic-capabilities-overview/" class="md-nav__link">
+        6.1 Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://heidloff.net/article/updating-resources-kubernetes-operators" class="md-nav__link">
+        6.2 Creating and updating Resources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://heidloff.net/article/deleting-resources-kubernetes-operators" class="md-nav__link">
+        6.3 Deleting Resources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://heidloff.net/article/storing-state-status-kubernetes-resources-conditions-operators-go" class="md-nav__link">
+        6.4 Storing State of Resources with Conditions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://heidloff.net/article/finding-kubernetes-version-capabilities-operators" class="md-nav__link">
+        6.5 Finding out the Kubernetes Versions and Capabilities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://heidloff.net/article/configuring-webhooks-kubernetes-operators" class="md-nav__link">
+        6.6 Configuring Webhooks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://heidloff.net/article/developing-initialization-validation-webhooks-kubernetes-operators" class="md-nav__link">
+        6.7 Initialization and Validation Webhooks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://heidloff.net/article/converting-custom-resource-versions-kubernetes-operators" class="md-nav__link">
+        6.8 Converting Custom Resource Versions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://heidloff.net/article/defining-dependencies-kubernetes-operators" class="md-nav__link">
+        6.9 Defining Dependencies
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          7. Advanced Capabilities
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="7. Advanced Capabilities" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          7. Advanced Capabilities
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-capabilities-overview/" class="md-nav__link">
+        7.1 Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://heidloff.net/article/exporting-metrics-kubernetes-applications-prometheus" class="md-nav__link">
+        7.2 Exporting Metrics from Kubernetes Apps for Prometheus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://heidloff.net/article/accessing-kubernetes-from-go-applications" class="md-nav__link">
+        7.3 Accessing Kubernetes from Go Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://heidloff.net/article/how-to-build-your-own-database-on-kubernetes" class="md-nav__link">
+        7.4 How to build your own Database on Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://heidloff.net/quarkus/building-databases-kubernetes-quarkus" class="md-nav__link">
+        7.5 Building Databases on Kubernetes with Quarkus
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          8. Golang
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="8. Golang" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          8. Golang
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../golang-overview/" class="md-nav__link">
+        8.1 Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://heidloff.net/article/importing-go-modules-kubernetes-operators" class="md-nav__link">
+        8.2 Importing Go Modules in Operators
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://heidloff.net/article/accessing-third-party-custom-resources-go-operators" class="md-nav__link">
+        8.3 Accessing third Party Custom Resources in Go Operators
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://heidloff.net/article/object-oriented-concepts-golang" class="md-nav__link">
+        8.4 Using object-oriented Concepts in Golang based Operators
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-openshift-operatorhub" class="md-nav__link">
+    Introduction to OpenShift OperatorHub
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packaging-with-olm" class="md-nav__link">
+    Packaging with OLM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-resource-definitions" class="md-nav__link">
+    Custom Resource Definitions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands-to-demo-the-installation-use-case" class="md-nav__link">
+    Commands to demo the installation use case
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands to demo the installation use case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-openshift" class="md-nav__link">
+    For OpenShift:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-kubernetes" class="md-nav__link">
+    For Kubernetes:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-it-work" class="md-nav__link">
+    How Does it Work?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/IBM/operator-sample-go/edit/main/documentation/demos-operatorhub.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="installation-via-operatorhub">Installation via OperatorHub<a class="headerlink" href="#installation-via-operatorhub" title="Permanent link">&para;</a></h1>
+<h3 id="introduction-to-openshift-operatorhub">Introduction to OpenShift OperatorHub<a class="headerlink" href="#introduction-to-openshift-operatorhub" title="Permanent link">&para;</a></h3>
+<p>Kubernetes includes an Operator Lifecycle Manager component which is used extensively by OpenShift to manage its own operators, and you can use it to manage your custom operator(s).  In the OpenShift UI console, you’ll find the OperatorHub.</p>
+<p>Each tile represents an operator which are visible in the UI of the thousands of OpenShift clusters, used by enterprises worldwide.  Currently, there are around 400 operators from RedHat, IBM and other ISVs and you can filter the operators in various ways.  </p>
+<p><img alt="image" src="../images/demo1.png" /> </p>
+<p>The OperatorHub collates its contents from various sources (known as Catalogs).</p>
+<ul>
+<li>
+<p>Red Hat Operators - Red Hat products packaged and shipped by Red Hat.</p>
+</li>
+<li>
+<p>Certified Operators - Products from leading independent software vendors (ISVs), and there is a simple process with RedHat to verify the operator and solution meet their quality criteria.  </p>
+</li>
+<li>
+<p>Red Hat Marketplace – these are certified operators that are available to purchase via the Red Hat marketplace.</p>
+</li>
+<li>
+<p>Community Operators – these are open source operators from a specific github repo, into which it is very easy to add content.  These community operators also appear in another marketplace called OperatorHub.io.  Although this has a similar name to the OperatorHub in OpenShift, it’s a separate marketplace aimed at any Kubernetes platform.</p>
+</li>
+</ul>
+<p>It’s also possible to create your own private catalog sources to provide your operators on a specific cluster (without deploying to public catalog).</p>
+<h3 id="packaging-with-olm">Packaging with OLM<a class="headerlink" href="#packaging-with-olm" title="Permanent link">&para;</a></h3>
+<p>It’s important to understand how the packaging of operators works.  To have your own operator included in any of the catalog sources referenced above, it needs to be packaged according to the requirements of the Operator Lifecycle Manager, which in simplified terms looks like this:</p>
+<p><img alt="image" src="../images/demo6.png" /> </p>
+<p>The bundle is a collection of files which includes a resource definition called a ClusterServiceVersion which describes the operator and where to find it in a registry, the manifests to create the CRDs the operator manages, and any dependencies such as other operators.  From the bundle, you must create a Dockerfile to build a minimal container containing the files, which is pushed to a registry.  Finally, you must create another container called the index image.  The existing (or additional/new) catalog sources derive their content from index images, as they provide an API which publishes the details of your bundle.</p>
+<p>The open source operator SDK tool not only helps to scaffold operators in Go (and other languages), but also helps automate these packaging steps too.</p>
+<p>Once you have these packaging artifacts, what you do next depends on which catalog you want your operator to appear in, e.g. for Red Hat Marketplace you would work with Red Hat, for a community operator you would create a pull request and commit your bundle to the relevant open source repo, or you could simply provide the packaging artifacts directly to a customer for installation on a specific cluster.</p>
+<p>With Catalog sources installed to the cluster and the bundle, catalog and operator images uploaded to a container registry, the operators would be ready to install via the OperatorHub UI or OpenShift CLI.</p>
+<p><img alt="image" src="../images/demo7.png" /> </p>
+<h3 id="custom-resource-definitions">Custom Resource Definitions<a class="headerlink" href="#custom-resource-definitions" title="Permanent link">&para;</a></h3>
+<p>Each operator defines Custom Resource Definitions, AKI APIs as they are extensions to the default Kubernetes APIs for creating typical Kubernetes resources such as Deployments, Secrets etc.</p>
+<p><img alt="image" src="../images/demo10.png" /> </p>
+<p>The database operator defines three CRDs:</p>
+<ul>
+<li>
+<p>DatabaseCluster API/CRD allows for creating a ‘cluster’ of pods which simulate a typical database. Each pod is managed by a stateful set, has some storage, and provides some APIs. The database pods communicate with each other to establish one leader, to which data can be written and multiple followers/replicas which replicate the data for high availability. The database itself is just a sample, when called by an API, it writes a single json file to its associated persistent storage.</p>
+</li>
+<li>
+<p>Database API/CRD instructs the database cluster to create a ‘database schema’, populated by the specified SQL file. A real database may have other ways to create the schema.</p>
+</li>
+<li>
+<p>Backup API/CRD is used to automate the day 2 operation of triggering a manual or scheduled backup of the data, to cloud object storage. The operator encapsulates all the relevant know how to perform backups in a consistent and repeatable way.</p>
+</li>
+</ul>
+<p>The application operator defines one CRD:</p>
+<ul>
+<li>Application API/CRD creates a frontend web application by creating Kubernetes resources like secrets and deployments, and in addition, it uses the custom resources to create a ‘database schema’ (NB. It doesn't actually do this but this was the intention for this CR. For now, the database is currently hardcoded with its data).</li>
+</ul>
+<h3 id="commands-to-demo-the-installation-use-case">Commands to demo the installation use case<a class="headerlink" href="#commands-to-demo-the-installation-use-case" title="Permanent link">&para;</a></h3>
+<p>In this section of the demo, the operators were deployed using the OpenShift OperatorHub UI.  The same result can be achieved with CLI, which may be useful if testing with Kubernetes which does not have a user interface to manage operators.</p>
+<h4 id="for-openshift">For OpenShift:<a class="headerlink" href="#for-openshift" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> operator-application/olm
+kubectl apply -f catalogsource-openshift.yaml
+kubectl apply -f subscription-openshift.yaml
+<span class="nb">cd</span> operator-database/olm
+kubectl apply -f catalogsource-openshift.yaml
+kubectl apply -f subscription-openshift.yaml
+</code></pre></div>
+<h4 id="for-kubernetes">For Kubernetes:<a class="headerlink" href="#for-kubernetes" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> operator-application/olm
+kubectl apply -f catalogsource.yaml
+kubectl apply -f subscription.yaml
+<span class="nb">cd</span> operator-database/olm
+kubectl apply -f catalogsource-openshift.yaml
+kubectl apply -f subscription-openshift.yaml
+</code></pre></div>
+<h3 id="how-does-it-work">How Does it Work?<a class="headerlink" href="#how-does-it-work" title="Permanent link">&para;</a></h3>
+<p>The automation scripts in the Sample Operator Go project create the following resources (using the Application operator as an example):</p>
+<p>A <a href="https://github.com/IBM/operator-sample-go/blob/3d2772725954c140ff83316522753e4bac017605/scripts/application-operator-templates/openshift-application-catalogsource-TEMPLATE.yaml">CatalogSource</a> - this extends the OperatorHub with two additional private catalog sources.  They list the operators defined by the catalog image referenced in the Catalog</p>
+<p>A <a href="https://github.com/IBM/operator-sample-go/blob/3d2772725954c140ff83316522753e4bac017605/scripts/application-operator-templates/openshift-application-subscription-TEMPLATE.yaml">Subscription</a>.  The same resource would be created if the operator was manually installed via the OperatorHub.  The subscription causes the Kubernetes OLM component to install the operator, its CRDs and any dependant operators, as defined in the bundle files (i.e. the cluster service version) exposed by the catalog image.</p>
+<p>The operator controller is deployed with a Deployment in the openshift-operators namespace.  The operator does not deploy any resources until an instance of its CRD is created.  This will trigger operator's reconcile loop which uses Kubernetes API to create and manage the required Kubernetes resources.</p>
+<p><img alt="image" src="../images/demo29.png" /> </p>
+<p>The operator's CRDs can be found in Administration-&gt;Custom Resource Definitions.</p>
+<p><img alt="image" src="../images/demo30.png" /> </p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../demos-setup/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 3.2 Setup" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              3.2 Setup
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../demos-database-backup/" class="md-footer__link md-footer__link--next" aria-label="Next: 3.4 Database backup" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              3.4 Database backup
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/IBM/operator-sample-go" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.39f04ddb.min.js"></script>
+      
+    
+  </body>
+</html>
